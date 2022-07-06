@@ -14,7 +14,7 @@
     .vital_content
       %h2= "#{@vital.moisture_supply}mL"
       %p 1コップ（200mL）
-      - for num in 1..@vital.moisture_function
+      - for num in 1..@vital.moisture_quantity
         = image_tag 'water.png',size: "80x80"
       
     .vital_feces.feces-btn
