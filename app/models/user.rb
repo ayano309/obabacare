@@ -25,6 +25,12 @@ class User < ApplicationRecord
   
   has_many :vitals, dependent: :destroy
   has_many :defecations, dependent: :destroy
+  
+  EMAIL_REGEX =  /\A\S+@\S+\.\S+\z/.freeze
+
+  validates :name, presence: true, length: { maximum: 20 }
+  validates :email, presence: true, uniqueness: { case_sensitive: true }, 
+  format: { with: EMAIL_REGEX, message: 'は正しいメールアドレスを入力してください' }, length: { maximum: 256 }
 
   #排便記録
   def defecation_by?(vital)

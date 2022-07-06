@@ -23,6 +23,15 @@ class Vital < ApplicationRecord
   belongs_to :user
   has_many :defecations, dependent: :destroy
   
+  validates :day , presence: true
+  validates :breathing , presence: true
+  validates :high_bp , presence: true
+  validates :low_bp , presence: true
+  validates :pulse , presence: true
+  validates :temperature , presence: true
+  validates :moisture_supply , presence: true, numericality: { greater_than_or_equal_to: 0 }
+  validates :oxygen_saturation, presence: true, numericality: { greater_than_or_equal_to: 9 }
+  
   #vital投稿日、投稿時間
   def vital_created_at
     I18n.l(self.day, format: :short)
