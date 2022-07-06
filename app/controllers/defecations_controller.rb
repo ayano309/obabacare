@@ -1,0 +1,2 @@
+class DefecationsController < ApplicationController
+end
