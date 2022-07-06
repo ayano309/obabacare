@@ -14,7 +14,7 @@
   	width: 6px;
   	height: 100%;
   	margin-left: -3px;
-  	background: rgba(128,222,234 ,1);
+  	background: #ffa07a;
   }
   li {
 	  padding: 1em 0;
@@ -39,28 +39,26 @@
   &_time{
     position: relative;
   	display: inline;
-  	background: rgba(26,35,126 ,1);
-  	color: #ffffff;
+  	background: #ff7f50;
+  	color: #fff;
   	padding: 6px 10px;
   	border-radius: 5px;
   	font-weight: bold;
   	text-align: left;
   	z-index: 15;
   }
-  
+
   &_detail {
-  	margin: 1em 0.75em 0 0;
+    width: 60%;
   	font-size: 0.7em;
   	font-weight: bold;
   	line-height: 1.5em;
-  	margin: 1em 1em 0 1em;
-  	padding: 1em;
-  	background: rgba(178,235,242 ,0.7);
+  	margin: 1em auto ;
+  	padding: 2em;
+  	background:  #ffdab9;
   	border-radius: 6px;
   	position: relative;
   	z-index: 15;
   }
-  &_delete{
-    background-color: #fff;
-  }
+
 }
