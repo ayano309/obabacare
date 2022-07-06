@@ -1,5 +1,5 @@
 .container
-  .vital
+  .vital{:id => "vital_#{@vital.id}"}
     .vital_day
       %h1.vital_title
         = @vital.vital_created_at
@@ -13,8 +13,9 @@
         = render 'vital', vital: @vital
     .vital_content
       水分記録
-    .vital_feces
+    .vital_feces.feces-btn
       = render 'defecations/feces-btn' , vital: @vital
+
 
   .vital
     %h2.vital_comment コメント一覧

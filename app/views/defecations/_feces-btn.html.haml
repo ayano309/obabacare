@@ -1,9 +1,9 @@
 - if user_signed_in?
   - if current_user.defecation_by?(vital)
     .vital_feces
-      = link_to vital_defecations_path(vital), data: { method: 'delete' } do
-        = image_tag 'feces-acti.svg'
+      = link_to vital_defecations_path(vital), data: { method: 'delete' },remote: true do
+        = image_tag 'feces-active.svg'
   - else
     .vital_feces
-      = link_to vital_defecations_path(vital), data: { method: 'post' } do
+      = link_to vital_defecations_path(vital), data: { method: 'post' },remote: true do
         = image_tag 'feces.svg'
