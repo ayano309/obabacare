@@ -2,7 +2,7 @@ class VitalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_vital, only: %i[show edit update]
   def index
-    @vitals = current_user.vitals
+    @vitals = Vital.where(user_id: current_user.id)
   end
   
   def show; end
