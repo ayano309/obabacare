@@ -20,7 +20,17 @@
              コメント入れる
             </div>
             <div class="card_feces">
-              <%= image_tag 'feces.svg' %>
+              <% if user_signed_in? %>
+                <% if current_user.defecation_by?(vital) %>
+                  <div class="vital_feces">
+                    <%= image_tag 'feces-active.svg' %>
+                  </div>
+                <% else %>
+                  <div class="vital_feces">
+                    <%= image_tag 'feces.svg' %>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
             <div class="card_day">
               <p><%= vital.vital_created_at %></p>

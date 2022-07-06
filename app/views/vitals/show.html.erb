@@ -20,19 +20,21 @@
   <div class="vital_content">
     水分記録
   </div>
-  <% if user_signed_in? %>
-    <% if current_user.defecation_by?(@vital) %>
-      <div class="vital_feces">
-        <%= link_to vital_defecations_path(@vital), data: { method: 'delete' } do%>
-          <%= image_tag 'feces-active.svg' %>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="vital_feces">
-        <%= link_to vital_defecations_path(@vital), data: { method: 'post' } do%>
-          <%= image_tag 'feces.svg' %>
-        <% end %>
-      </div>
+  <div class="vital_feces">
+    <% if user_signed_in? %>
+      <% if current_user.defecation_by?(@vital) %>
+        <div class="vital_feces">
+          <%= link_to vital_defecations_path(@vital), data: { method: 'delete' } do%>
+            <%= image_tag 'feces-active.svg' %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="vital_feces">
+          <%= link_to vital_defecations_path(@vital), data: { method: 'post' } do%>
+            <%= image_tag 'feces.svg' %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
