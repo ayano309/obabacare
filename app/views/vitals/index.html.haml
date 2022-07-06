@@ -7,7 +7,7 @@
   - @vitals.each do |vital|
     = link_to vital_path(vital) do
       .card
-        .card_vital.container
+        .card_vital.container.table-responsive
           = render 'vital', vital: vital
         .card_detail
           .card_content
