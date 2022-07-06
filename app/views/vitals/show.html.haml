@@ -26,17 +26,22 @@
 
   
   .vital
-    %h2 コメント一覧
-    - @comments.each do |comment|
-      .vital_comment.d-flex.justify-content-between
-        %p= comment.content
-        %p= link_to '削除' ,vital_comment_path(@vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' } 
+    %h2.vital_comment コメント一覧
+    %ul.timeline
+      - @comments.each do |comment|
+        %li
+          .timeline_item
+            .timeline_content
+              %span.timeline_time= comment.comment_created_at
+            .timeline_detail
+              = comment.content
+              = link_to '削除' ,vital_comment_path(@vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' } 
 
   %ul
     = render 'layouts/error', object: @comment
   = form_with(model: [@vital,@comment],local: true) do |f|
     %div
-      = f.label :content, '内容'
+      = f.label :content, 'コメント内容'
     %div
       = f.text_field :content, class: 'text'
     = f.submit '保存', class: 'btn-log'
