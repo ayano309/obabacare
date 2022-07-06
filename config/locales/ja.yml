@@ -7,7 +7,15 @@ ja:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
     attributes:
-      
+      vital:
+        breathing: '呼吸数'
+        day: '計測日'
+        oxygen_saturation: '酸素飽和度'
+        high_bp: '収縮期血圧（上の血圧）'
+        low_bp: "拡張期血圧（下の血圧）"
+        pulse: "脈拍"
+        temperature: "体温"
+        moisture_supply: "水分量"
   date:
     abbr_day_names:
     - 日
