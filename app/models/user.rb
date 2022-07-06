@@ -24,4 +24,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   has_many :vitals, dependent: :destroy
+  has_many :defecations, dependent: :destroy
+
+  #排便記録
+  def defecation_by?(vital)
+    defecations.exists?(vital_id: vital.id)
+  end
 end

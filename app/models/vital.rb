@@ -21,8 +21,9 @@
 #
 class Vital < ApplicationRecord
   belongs_to :user
+  has_many :defecations, dependent: :destroy
   
-  #計測日
+  #vital投稿日、投稿時間
   def vital_created_at
     I18n.l(self.day, format: :short)
   end
