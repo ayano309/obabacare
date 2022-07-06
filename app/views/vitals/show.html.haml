@@ -1,5 +1,5 @@
 .container
-  .vital
+  .vital{:id => "vital_#{@vital.id}"}
     .vital_day
       %h1.vital_title
         = @vital.vital_created_at
@@ -13,18 +13,10 @@
         = render 'vital', vital: @vital
     .vital_content
       水分記録
-    .vital_feces
-      - if user_signed_in?
-        - if current_user.defecation_by?(@vital)
-          .vital_feces
-            = link_to vital_defecations_path(@vital), data: { method: 'delete' } do
-              = image_tag 'feces-active.svg'
-        - else
-          .vital_feces
-            = link_to vital_defecations_path(@vital), data: { method: 'post' } do
-              = image_tag 'feces.svg'
+    .vital_feces.feces-btn
+      = render 'defecations/feces-btn' , vital: @vital
 
-  
+
   .vital
     %h2.vital_comment コメント一覧
     %ul.timeline
@@ -35,7 +27,7 @@
               %span.timeline_time= comment.comment_created_at
             .timeline_detail
               = comment.content
-              = link_to '削除' ,vital_comment_path(@vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' } 
+              = link_to '削除' ,vital_comment_path(@vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' }
 
   %ul
     = render 'layouts/error', object: @comment
