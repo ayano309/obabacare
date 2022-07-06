@@ -3,17 +3,17 @@
     .tabs_item.active
       今日
     .tabs_item
-      １週間
+      一覧
   - @vitals.each do |vital|
     = link_to vital_path(vital) do
       .card
-        .card_vital.container
+        .card_vital.container.table-responsive
           = render 'vital', vital: vital
         .card_detail
           .card_content
             .card_comment
               コメント入れる
-            .card_feces
+            .card_faces
               - if user_signed_in?
                 - if current_user.defecation_by?(vital)
                   .vital_feces
@@ -24,5 +24,7 @@
             .card_day
               %p= vital.vital_created_at
           .card_content
-            水分機能
+            = image_tag 'water.png',size: "50x50"
+            = " x #{vital.moisture_quantity}杯"
+            = "(#{vital.moisture_supply}mL)" 
   = render 'new_btn'

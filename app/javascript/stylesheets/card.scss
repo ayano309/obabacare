@@ -16,7 +16,6 @@ $feces-size: 30px;
   
   &_detail{
     display: flex;
-    justify-content: space-between;
   }
   
   &_content {
@@ -30,6 +29,9 @@ $feces-size: 30px;
 
   &_feces {
     display: flex;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
 
     img {
       width: $feces-size;

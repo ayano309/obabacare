@@ -9,10 +9,19 @@
           = link_to '編集する',edit_vital_path(@vital)
           = link_to '削除する',vital_path(@vital),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
     .vital_detail
-      .container
+      .container.table-responsive 
         = render 'vital', vital: @vital
     .vital_content
-      水分記録
+      .vital_moisture
+        = form_with model:@vital, url: vital_path(@vital),method: :patch, local: true  do |f|
+          = f.label :moisture_supply, '水分量'
+          = f.text_field :moisture_supply, class: 'form-moisture'
+          mL
+          = f.submit "更新",  class: "btn btn-secondary btn-sm"
+      %p 1コップ（200mL）
+      - for num in 1..@vital.moisture_quantity
+        = image_tag 'water.png',size: "80x80"
+
     .vital_feces.feces-btn
       = render 'defecations/feces-btn' , vital: @vital
 

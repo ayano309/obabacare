@@ -1,14 +1,17 @@
+@import './variables';
+
 input, select {
   &.text {
   width: 100%;
   margin: 8px 0px;
   padding: 16px 24px;
-  border: 1px solid #EBEBEB;
+  border: 1px solid $form-bg-color;
   }
 }
 
 label {
   font-size: 12px;
+  font-weight: bold;
 }
 
 textarea{
@@ -17,5 +20,15 @@ textarea{
   padding: 8px 8px;
   min-height: 160px;
   resize: vertical;
-  border: 1px solid #EBEBEB;
+  border: 1px solid $form-bg-color;
+}
+
+.form-moisture{
+  width: 50%;
+  margin: 8px 0px;
+  padding: 16px 24px;
+  border: 1px solid $form-bg-color;
+  font-size: 32px;
+  font-weight: bold;
+  color: $text-base-color;
 }
