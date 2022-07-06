@@ -1,0 +1,51 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+@import 'form';
+@import 'variables';
+@import 'flash';
+@import 'button';
+@import 'header';
+@import 'vital';
+@import 'card';
+@import 'dropdown';
+
+html {
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+a{
+  text-decoration: none;
+  color:$text-base-color;
+}
+
+a:hover{
+  text-decoration: none;
+  color:$text-base-color;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  background-color: $base-bg-color;
+  font-size: 1em;
+  color: $text-base-color;
+}
+
+.container {
+  padding: 16px 16px;
+  width: 100%;
+}

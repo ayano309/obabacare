@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
  #サインイン後にどこに遷移するか
  def after_sign_in_path_for(resource)
-    root_path
+    vitals_path
  end
 
  #サインアウト後の遷移先

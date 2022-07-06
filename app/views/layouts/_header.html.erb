@@ -1,7 +1,11 @@
 <header class="header" id="header">
   <div class="header_logos">
     <p class="header_pageTitle">
-      <%= link_to 'おばばcare', root_path %>
+      <% if user_signed_in? %>
+        <%= link_to 'おばばcare', vitals_path %>
+      <% else %>
+        <%= link_to 'おばばcare', root_path %>
+      <% end %>
       <%= image_tag 'obaba.png', class: 'header_avatar dropbtn'%>
     </p>
   </div>
