@@ -18,6 +18,10 @@ $container-padding: 16px;
     justify-content: space-between;
   }
   
+  &_comment {
+    padding: 12px 0;
+  }
+  
   &_detail {
     padding-top: 10px;
     display: flex;
