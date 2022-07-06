@@ -37,4 +37,9 @@ class Vital < ApplicationRecord
   def vital_created_at
     I18n.l(self.day, format: :short)
   end
+  
+  #水分
+  def moisture_quantity
+   (self.moisture_supply/200).floor
+  end
 end

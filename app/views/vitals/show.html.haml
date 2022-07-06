@@ -12,7 +12,11 @@
       .container
         = render 'vital', vital: @vital
     .vital_content
-      水分記録
+      %h2= "#{@vital.moisture_supply}mL"
+      %p 1コップ（200mL）
+      - for num in 1..@vital.moisture_function
+        = image_tag 'water.png',size: "80x80"
+      
     .vital_feces.feces-btn
       = render 'defecations/feces-btn' , vital: @vital
 
