@@ -27,5 +27,6 @@ module ObabaCare
       g.assets false
       g.helper false
     end
+    config.hosts << "a27cb57915834a079b57b25287437d9a.vfs.cloud9.ap-northeast-1.amazonaws.com"
   end
 end
