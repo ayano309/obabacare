@@ -9,27 +9,29 @@
   </div>
 
   <% @vitals.each do |vital| %>
-    <div class="card">
-      <div class="card_vital container">
-        <%= render 'vital', vital: vital %>
-      </div>
-      <div class="card_detail">
-        <div class="card_content">
-          <div class="card_comment">
-           コメント入れる
+    <%= link_to vital_path(vital) do %>
+      <div class="card">
+        <div class="card_vital container">
+          <%= render 'vital', vital: vital %>
+        </div>
+        <div class="card_detail">
+          <div class="card_content">
+            <div class="card_comment">
+             コメント入れる
+            </div>
+            <div class="card_feces">
+              <%= image_tag 'feces.svg' %>
+            </div>
+            <div class="card_day">
+              <p><%= vital.vital_created_at %></p>
+            </div>
           </div>
-          <div class="card_feces">
-            <%= image_tag 'feces.svg' %>
-          </div>
-          <div class="card_day">
-            <p><%= vital.vital_created_at %></p>
+          <div class="card_content">
+            水分機能
           </div>
         </div>
-        <div class="card_content">
-          水分機能
-        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
   <%= render 'new_btn' %>
 </div>

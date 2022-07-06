@@ -25,6 +25,11 @@ a{
   color:$text-base-color;
 }
 
+a:hover{
+  text-decoration: none;
+  color:$text-base-color;
+}
+
 *,
 *:before,
 *:after {
