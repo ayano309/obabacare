@@ -21,4 +21,9 @@
 #
 class Vital < ApplicationRecord
   belongs_to :user
+  
+  #計測日
+  def vital_created_at
+    I18n.l(self.day, format: :short)
+  end
 end
