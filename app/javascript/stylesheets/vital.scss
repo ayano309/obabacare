@@ -11,6 +11,9 @@ $container-padding: 16px;
 
   &_title {
     font-size: 22px;
+    padding: 0.5em 1em;
+    font-weight: bold;
+    border: solid 3px #000000;
   }
   
   &_day{
