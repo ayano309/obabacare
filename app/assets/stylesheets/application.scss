@@ -17,7 +17,7 @@
 @import 'variables';
 @import 'flash';
 @import 'button';
-
+@import 'header';
 
 html {
   word-spacing: 1px;
@@ -27,6 +27,11 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   height: 100%;
+}
+
+a{
+  text-decoration: none;
+  color:$text-base-color;
 }
 
 *,

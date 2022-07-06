@@ -1,0 +1,41 @@
+<header class="header" id="header">
+  <div class="header_logos">
+    <p class="header_pageTitle">
+      <%= link_to 'おばばcare', root_path %>
+      <%= image_tag 'obaba.png', class: 'header_avatar dropbtn'%>
+    </p>
+  </div>
+  <% if user_signed_in? %>
+    <div class="openbtn"><span></span><span></span><span></span></div>
+    <nav id="g-nav">
+      <div id="g-nav-list"><!--ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除-->
+        <ul>
+          <li><a href="#">Top</a></li>
+          <li><a href="#">Vital</a></li>
+          <li><a href="#">Memo</a></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' } %></li>
+        </ul>
+      </div>
+    </nav>
+  <% else %>
+    <%= link_to "ログイン", new_user_session_path ,class: 'header_loginBtn'%>
+  <% end %>
+</header>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(".openbtn").click(function () {//ボタンがクリックされたら
+
+    $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+    $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+
+  });
+
+  $("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+
+    $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+    $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+
+  });
+
+</script>
