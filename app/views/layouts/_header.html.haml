@@ -1,0 +1,39 @@
+%body
+  %header#header.header
+    .header_logos
+      %p.header_pageTitle
+        - if user_signed_in?
+          = link_to 'おばばcare', vitals_path
+        - else
+          = link_to 'おばばcare', root_path
+        = image_tag 'obaba.png', class: 'header_avatar dropbtn'
+    - if user_signed_in?
+      .openbtn
+        %span
+        %span
+        %span
+      %nav#g-nav
+        #g-nav-list
+          / ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除
+          %ul
+            %li= link_to "VITAL", vitals_path
+            %li
+              %a{:href => "#"} Memo
+            %li= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
+    - else
+      = link_to "ログイン", new_user_session_path ,class: 'header_loginBtn'
+  %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+  :javascript
+    $(".openbtn").click(function () {//ボタンがクリックされたら
+
+      $(this).toggleClass('active');//ボタン自身に activeクラスを付与し
+      $("#g-nav").toggleClass('panelactive');//ナビゲーションにpanelactiveクラスを付与
+
+    });
+
+    $("#g-nav a").click(function () {//ナビゲーションのリンクがクリックされたら
+
+      $(".openbtn").removeClass('active');//ボタンの activeクラスを除去し
+      $("#g-nav").removeClass('panelactive');//ナビゲーションのpanelactiveクラスも除去
+
+    });

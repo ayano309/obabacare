@@ -1,0 +1,17 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th 体温
+      %th 高血圧
+      %th 低血圧
+      %th 脈拍
+      %th 呼吸数
+      %th{:colspan => "3"}
+  %tbody
+    %tr{:id => "vital_#{vital.id}"}
+      %td
+        = vital.temperature
+      %td= vital.high_bp
+      %td= vital.low_bp
+      %td= vital.pulse
+      %td= vital.breathing

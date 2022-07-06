@@ -1,0 +1,28 @@
+.container
+  .tabs
+    .tabs_item.active
+      今日
+    .tabs_item
+      １週間
+  - @vitals.each do |vital|
+    = link_to vital_path(vital) do
+      .card
+        .card_vital.container
+          = render 'vital', vital: vital
+        .card_detail
+          .card_content
+            .card_comment
+              コメント入れる
+            .card_feces
+              - if user_signed_in?
+                - if current_user.defecation_by?(vital)
+                  .vital_feces
+                    = image_tag 'feces-active.svg'
+                - else
+                  .vital_feces
+                    = image_tag 'feces.svg'
+            .card_day
+              %p= vital.vital_created_at
+          .card_content
+            水分機能
+  = render 'new_btn'
