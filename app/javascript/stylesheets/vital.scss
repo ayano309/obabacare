@@ -1,35 +1,40 @@
-@import './variables';
-$feces-size: 30px;
+$feces-size: 32px;
+$container-padding: 16px;
 
-
-.card {
+.vital {
   background-color: white;
-  margin: 16px 0;
-  cursor: pointer;
+  margin: 16px 16px;
+  padding: $container-padding $container-padding;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+  position: relative;
   
-  &_vital {
-    height: 150px;
-    position: relative;
-    overflow: scroll;
+
+  &_title {
+    font-size: 22px;
   }
   
-  &_detail{
+
+  &_detail {
+    padding-top: 10px;
     display: flex;
-    justify-content: space-between;
+    font-size: 12px;
+    position: relative;
   }
   
-  &_content {
-    padding: 16px 16px;
+  &_actions{
+    right: 0px;
+    position: absolute;
   }
 
-  &_comment{
-    font-size: 22px;
-    margin-bottom: 8px;
+
+  &_content {
+    padding: 24px 0 32px;
   }
 
   &_feces {
-    display: flex;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
 
     img {
       width: $feces-size;
@@ -37,24 +42,7 @@ $feces-size: 30px;
     }
   }
   
-  &_day {
-    font-weight: bold;
-  	position: absolute;
-  	z-index: 1;
-  	top: -20px;
-  	right: -20px;
-  	width: 75px;
-  	height: 75px;
-  	padding: 14.5px 0;
-  	text-align: center;
-  	color: #ffffff;
-  	border-radius: 100%;
-  	background: $primary-color;
-
-  	p{
-  	  font-size: 16px;
-  	}
+  td{
+    font-size: 20px;
   }
-
-  
 }
