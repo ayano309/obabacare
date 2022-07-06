@@ -50,6 +50,7 @@ group :development do
   gem 'bullet'
   gem 'pry-byebug'
   gem 'spring'
+  gem 'erb2haml'
 end
 
 group :test do
@@ -64,3 +65,4 @@ end
 gem 'annotate'
 gem 'devise'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'hamlit'
