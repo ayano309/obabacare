@@ -20,15 +20,7 @@
   .vital
     %h2.vital_comment コメント一覧
     %ul.timeline
-      - @comments.each do |comment|
-        %li
-          .timeline_item
-            .timeline_content
-              %span.timeline_time= comment.comment_created_at
-            .timeline_detail
-              = comment.content
-              = link_to '削除' ,vital_comment_path(@vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' }
-
+      = render 'comments/index', comments: @comments
   %ul
     = render 'layouts/error', object: @comment
   = form_with(model: [@vital,@comment],local: true) do |f|
