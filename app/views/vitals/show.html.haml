@@ -1,24 +1,47 @@
-.vital
-  .vital_day
-    %h1.vital_title
-      = @vital.vital_created_at
-    .dropdown
-      = image_tag "actions.svg",class: 'dropbtn'
-      .dropdown-content.mini
-        = link_to '編集する',edit_vital_path(@vital)
-        = link_to '削除する',vital_path(@vital),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
-  .vital_detail
-    .container
-      = render 'vital', vital: @vital
-  .vital_content
-    水分記録
-  .vital_feces
-    - if user_signed_in?
-      - if current_user.defecation_by?(@vital)
-        .vital_feces
-          = link_to vital_defecations_path(@vital), data: { method: 'delete' } do
-            = image_tag 'feces-active.svg'
-      - else
-        .vital_feces
-          = link_to vital_defecations_path(@vital), data: { method: 'post' } do
-            = image_tag 'feces.svg'
+.container
+  .vital
+    .vital_day
+      %h1.vital_title
+        = @vital.vital_created_at
+      .dropdown
+        = image_tag "actions.svg",class: 'dropbtn'
+        .dropdown-content.mini
+          = link_to '編集する',edit_vital_path(@vital)
+          = link_to '削除する',vital_path(@vital),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
+    .vital_detail
+      .container
+        = render 'vital', vital: @vital
+    .vital_content
+      水分記録
+    .vital_feces
+      - if user_signed_in?
+        - if current_user.defecation_by?(@vital)
+          .vital_feces
+            = link_to vital_defecations_path(@vital), data: { method: 'delete' } do
+              = image_tag 'feces-active.svg'
+        - else
+          .vital_feces
+            = link_to vital_defecations_path(@vital), data: { method: 'post' } do
+              = image_tag 'feces.svg'
+
+  
+  .vital
+    %h2.vital_comment コメント一覧
+    %ul.timeline
+      - @comments.each do |comment|
+        %li
+          .timeline_item
+            .timeline_content
+              %span.timeline_time= comment.comment_created_at
+            .timeline_detail
+              = comment.content
+              = link_to '削除' ,vital_comment_path(@vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' } 
+
+  %ul
+    = render 'layouts/error', object: @comment
+  = form_with(model: [@vital,@comment],local: true) do |f|
+    %div
+      = f.label :content, 'コメント内容'
+    %div
+      = f.text_field :content, class: 'text'
+    = f.submit '保存', class: 'btn-log'

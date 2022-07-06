@@ -1,0 +1,66 @@
+.timeline {
+	position: relative;
+	width: 100%;
+	margin: 3em auto;
+	padding: 1em 0;
+	list-style-type: none;
+
+	&::before {
+    position: absolute;
+  	left: 50%;
+  	top: 0;
+  	content: '';
+  	display: block;
+  	width: 6px;
+  	height: 100%;
+  	margin-left: -3px;
+  	background: rgba(128,222,234 ,1);
+  }
+  li {
+	  padding: 1em 0;
+  }
+  li:after {
+  	content: '';
+  	display: block;
+  	height: 0;
+  	clear: both;
+  	visibility: hidden;
+  }
+  &_item{
+    float: none;
+		width: 100%;
+		text-align: center;
+  }
+  &_content {
+  	position: relative;
+  	display: inline-block;
+  	text-align: center;
+  }
+  &_time{
+    position: relative;
+  	display: inline;
+  	background: rgba(26,35,126 ,1);
+  	color: #ffffff;
+  	padding: 6px 10px;
+  	border-radius: 5px;
+  	font-weight: bold;
+  	text-align: left;
+  	z-index: 15;
+  }
+  
+  &_detail {
+  	margin: 1em 0.75em 0 0;
+  	font-size: 0.7em;
+  	font-weight: bold;
+  	line-height: 1.5em;
+  	margin: 1em 1em 0 1em;
+  	padding: 1em;
+  	background: rgba(178,235,242 ,0.7);
+  	border-radius: 6px;
+  	position: relative;
+  	z-index: 15;
+  }
+  &_delete{
+    background-color: #fff;
+  }
+}

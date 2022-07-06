@@ -16,6 +16,8 @@ ja:
         pulse: "脈拍"
         temperature: "体温"
         moisture_supply: "水分量"
+      comment:
+        content: '内容'
   date:
     abbr_day_names:
     - 日
@@ -213,4 +215,5 @@ ja:
       default: "%Y/%m/%d"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
+      time: "%H:%M"
     pm: 午後
