@@ -1,0 +1,28 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  DisabledByDefault: true
+  Exclude:
+    - db/schema.rb
+    - vendor/bundle/**/*
+    - node_modules/**/*
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Style/MethodDefParentheses:
+  Enabled: true
+
+Style/StringLiterals:
+  EnforcedStyle: single_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: single_quotes
