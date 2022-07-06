@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="tabs">
+    <div class="tabs_item active">
+     今日
+    </div>
+    <div class="tabs_item">
+     １週間
+    </div>
+  </div>
+
+  <% @vitals.each do |vital| %>
+    <div class="vital">
+      <div class="card_vital">
+        
+      </div>
+      <div class="card_content">
+        <div class="card_title">
+          コメント入れる
+        </div>
+        <div class="card_faces">
+          排便
+        </div>
+        <div class="card_detail">
+          <div>
+            <p>時間</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%if user_signed_in?%>
+    <%= link_to new_vital_path do %>
+      <div class="float_btn">
+        <i class="fa fa-plus"></i>
+      </div>
+    <% end %>
+  <% end %>
+</div>

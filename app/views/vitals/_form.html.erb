@@ -4,6 +4,12 @@
   </ul>
   <%= form_with(model: vital, local: true) do |f|%>
     <div>
+      <%= f.label :day, '計測日' %>
+    </div>
+    <div>
+      <%= f.date_field :day, class: "text" %>
+    </div>
+    <div>
       <%= f.label :temperature, '体温(度)' %>
     </div>
     <div>
