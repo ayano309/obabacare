@@ -1,0 +1,37 @@
+.container
+  %ul
+    = render 'layouts/error', object: vital
+  = form_with(model: vital, local: true) do |f|
+    %div
+      = f.label :day, '計測日'
+    %div
+      = f.datetime_field :day, class: "text"
+    %div
+      = f.label :temperature, '体温(度)'
+    %div
+      = f.text_field :temperature, class: 'text'
+    %div
+      = f.label :high_bp, '収縮期血圧(上の血圧mmHg)'
+    %div
+      = f.text_field :high_bp, class: 'text'
+    %div
+      = f.label :low_bp, '拡張期血圧(下の血圧mmHg)'
+    %div
+      = f.text_field :low_bp, class: 'text'
+    %div
+      = f.label :pulse , '脈拍数(回/分)'
+    %div
+      = f.text_field  :pulse , class: 'text'
+    %div
+      = f.label :breathing, '呼吸数(回/分)'
+    %div
+      = f.text_field  :breathing , class: 'text'
+    %div
+      = f.label :oxygen_saturation, '酸素飽和度(%)'
+    %div
+      = f.text_field :oxygen_saturation, class: 'text'
+    %div
+      = f.label :moisture_supply, '水分量(mL)'
+    %div
+      = f.text_field :moisture_supply, class: 'text'
+    = f.submit '保存', class: 'btn-log'

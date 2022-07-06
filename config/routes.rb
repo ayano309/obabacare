@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  root to: "homes#index"
+  root to: 'homes#index'
   resources :vitals do
     resource :defecations, only: [:create, :destroy]
   end
