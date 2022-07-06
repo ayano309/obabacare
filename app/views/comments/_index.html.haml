@@ -1,8 +1,8 @@
-- comments.each do |comment|
+- vital.comments.each do |comment|
   %li
     .timeline_item
       .timeline_content
         %span.timeline_time= comment.comment_created_at
       .timeline_detail
         = comment.content
-        = link_to '削除' ,vital_comment_path(comment.vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' }
+        = link_to '削除' ,vital_comment_path(comment.vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' },remote: true
