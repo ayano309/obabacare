@@ -13,4 +13,7 @@
 #  index_comments_on_vital_id  (vital_id)
 #
 class Comment < ApplicationRecord
+  belongs_to :vital
+
+  validates :content, presence: true
 end
