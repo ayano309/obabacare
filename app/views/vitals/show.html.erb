@@ -1,5 +1,17 @@
 <div class="vital">
-  <h1 class="vital_title"><%= @vital.vital_created_at %></h1>
+  <div class="vital_day">
+    <h1 class="vital_title">
+      <%= @vital.vital_created_at %>
+    </h1>
+    <div class="dropdown">
+      <%= image_tag "actions.svg",class: 'dropbtn'%>
+      <div class="dropdown-content mini">
+        <%= link_to '編集する',edit_vital_path(@vital) %>
+        <%= link_to '削除する',vital_path(@vital),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}%>
+      </div>
+    </div>
+  </div>
+  
   <div class="vital_detail">
     <div class="container">
       <%= render 'vital', vital: @vital %>

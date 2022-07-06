@@ -13,7 +13,11 @@ $container-padding: 16px;
     font-size: 22px;
   }
   
-
+  &_day{
+    display: flex;
+    justify-content: space-between;
+  }
+  
   &_detail {
     padding-top: 10px;
     display: flex;
