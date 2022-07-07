@@ -56,6 +56,7 @@ class Vital < ApplicationRecord
   }
   
   #orderをまとめる方法は？#コントローラーから:descをどう渡すか
+  #１ヶ月分のvital情報
   scope :on_month, ->{ where(day: Time.zone.today.all_month) }
   scope :vitals_order_asc, -> { order(day: :asc) }
   scope :vitals_month, -> (user) {
@@ -63,4 +64,10 @@ class Vital < ApplicationRecord
     on_month.
     vitals_order_asc
   }
+  
+  #検索
+  scope :search_information, -> (keyword) { 
+    where("day LIKE :keyword", keyword: "%#{keyword}%")
+  }
+  
 end

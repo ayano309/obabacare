@@ -3,7 +3,13 @@ class VitalsController < ApplicationController
   before_action :set_vital, only: %i[show edit update]
   before_action :set_user, only: %i[index new create]
   def index
-    @vitals = Vital.on_vitals(@user, params[:page])
+    if params[:keyword].present?
+      @keyword = params[:keyword].strip
+      @vitals = Vital.search_information(@keyword).on_vitals(@user, params[:page])
+    else
+      @keyword = ""
+      @vitals = Vital.on_vitals(@user, params[:page])
+    end
   end
 
   def show
