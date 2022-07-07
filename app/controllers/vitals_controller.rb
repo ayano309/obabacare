@@ -3,7 +3,7 @@ class VitalsController < ApplicationController
   before_action :set_vital, only: %i[show edit update]
   before_action :set_user, only: %i[index new create]
   def index
-    @vitals = Vital.on_vitals(@user)
+    @vitals = Vital.on_vitals(@user, params[:page])
   end
 
   def show
