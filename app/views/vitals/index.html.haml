@@ -27,4 +27,5 @@
             = image_tag 'water.png',size: "50x50"
             = " x #{vital.moisture_quantity}杯"
             = "(#{vital.moisture_supply}mL)" 
+            = moisture_supply_check(vital)
   = render 'new_btn'
