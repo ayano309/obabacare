@@ -18,6 +18,9 @@ ja:
         moisture_supply: "水分量"
       comment:
         content: '内容'
+      memo:
+        title: 'タイトル'
+        content: '内容'
   date:
     abbr_day_names:
     - 日

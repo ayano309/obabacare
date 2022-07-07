@@ -14,9 +14,16 @@
 #  index_memos_on_user_id  (user_id)
 #
 class Memo < ApplicationRecord
+  belongs_to :user
+  #ページネーション
+  
+  validates :title , presence: true
+  validates :content , presence: true
+  
+  extend PageList
   scope :memo_by_user, -> (user) { where(user_id: user) }
   scope :on_memos, -> (user,page) {
-    vitals_by_user(user).
+    memo_by_user(user).
     display_list(page)
   }
 end

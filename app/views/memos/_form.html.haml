@@ -1,0 +1,13 @@
+.container
+  %ul
+    = render 'layouts/error', object: memo
+  = form_with(model: memo, local: true) do |f|
+    %div
+      = f.label :title, 'タイトル(カテゴリ)'
+    %div
+      = f.text_field :title, class: 'text'
+    %div
+      = f.label :content, '内容'
+    %div
+      = f.text_area :content, class: 'text'
+    = f.submit '保存', class: 'btn-log'

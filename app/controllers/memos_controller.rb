@@ -4,7 +4,7 @@ class MemosController < ApplicationController
   before_action :set_user, only: %i[index new create destroy]
   
   def index
-    @memos = Vital.on_memos(@user, params[:page])
+    @memos = Memo.on_memos(@user, params[:page])
   end
 
   def new
