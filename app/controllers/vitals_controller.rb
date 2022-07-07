@@ -1,8 +1,9 @@
 class VitalsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_vital, only: %i[show edit update]
+  before_action :set_user, only: %i[index new create]
   def index
-    @vitals = Vital.where(user_id: current_user.id)
+    @vitals = Vital.on_vitals(@user, params[:page])
   end
 
   def show
@@ -11,11 +12,11 @@ class VitalsController < ApplicationController
   end
 
   def new
-    @vital = current_user.vitals.build
+    @vital = @user.vitals.build
   end
 
   def create
-    @vital = current_user.vitals.build(vital_params)
+    @vital = @user.vitals.build(vital_params)
     if @vital.save
       redirect_to vital_path(@vital), notice: '保存できました'
     else
@@ -50,5 +51,9 @@ class VitalsController < ApplicationController
 
   def set_vital
     @vital = current_user.vitals.find(params[:id])
+  end
+  
+  def set_user
+    @user = current_user
   end
 end

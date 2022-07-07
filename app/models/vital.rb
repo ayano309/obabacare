@@ -42,4 +42,17 @@ class Vital < ApplicationRecord
   def moisture_quantity
    (self.moisture_supply/200).floor
   end
+  
+  #ページネーション
+  extend PageList
+  
+  #vitalの降順
+  scope :vitals_by_user, -> (user) { where(user_id: user) }
+  scope :vitals_order, -> { order(day: :desc) }
+
+  scope :on_vitals, -> (user,page) {
+    vitals_by_user(user).
+    vitals_order.
+    display_list(page)
+  }
 end

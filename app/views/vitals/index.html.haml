@@ -28,4 +28,5 @@
             = " x #{vital.moisture_quantity}杯"
             = "(#{vital.moisture_supply}mL)" 
             = moisture_supply_check(vital)
+  = paginate @vitals
   = render 'new_btn'
