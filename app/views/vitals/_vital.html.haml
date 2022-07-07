@@ -10,9 +10,9 @@
       %th{:colspan => "3"}
   %tbody
     %tr{:id => "vital_#{vital.id}"}
-      %td= vital.temperature
-      %td= vital.high_bp
-      %td= vital.low_bp
-      %td= vital.pulse
-      %td= vital.breathing
-      %td= vital.oxygen_saturation
+      %td{:class => "#{check_temprature(vital)}"}= vital.temperature
+      %td{:class => "#{check_high_bp(vital)}"}= vital.high_bp
+      %td{:class => "#{check_low_bp(vital)}"}= vital.low_bp
+      %td{:class => "#{check_pulse(vital)}"}= vital.pulse
+      %td{:class => "#{check_breathing(vital)}"}= vital.breathing
+      %td{:class => "#{check_oxygen_saturation(vital)}"}= vital.oxygen_saturation
