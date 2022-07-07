@@ -1,11 +1,20 @@
 .container
   = render 'commons/tab'
-  - @memos.each do |memo|
-    .card
-      = image_tag 'water.png',size: "50x50"
-      = memo.title
-      %br
-      = memo.content
+  .d-flex.flex-wrap
+    - @memos.each do |memo|
+      .card.w-50
+        .container
+          .card_memo.text-right
+            .dropdown
+              = image_tag "actions.svg",class: 'dropbtn'
+              .dropdown-content.mini
+                = link_to '編集する',edit_memo_path(memo)
+                = link_to '削除する',memo_path(memo),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
+          = image_tag 'water.png',size: "50x50"
+          %br
+          = memo.title
+          %br
+          = memo.content
   = paginate @memos
   - if user_signed_in?
     = link_to new_memo_path do
