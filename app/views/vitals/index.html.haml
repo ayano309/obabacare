@@ -3,7 +3,7 @@
     .tabs_item.active
       今日
     .tabs_item
-      一覧
+      = link_to '1週間' ,vital_weeks_path
   - @vitals.each do |vital|
     = link_to vital_path(vital) do
       .card

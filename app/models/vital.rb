@@ -46,13 +46,21 @@ class Vital < ApplicationRecord
   #ページネーション
   extend PageList
   
-  #vitalの降順
+  #vitalの降順でページネーション
   scope :vitals_by_user, -> (user) { where(user_id: user) }
   scope :vitals_order, -> { order(day: :desc) }
-
   scope :on_vitals, -> (user,page) {
     vitals_by_user(user).
     vitals_order.
     display_list(page)
+  }
+  
+  #orderをまとめる方法は？#コントローラーからどう渡すか
+  scope :on_weeks, ->{ where(day: Time.zone.today.all_week) }
+  scope :vitals_order_asc, -> { order(day: :asc) }
+  scope :vitals_week, -> (user) {
+    vitals_by_user(user).
+    on_weeks.
+    vitals_order_asc
   }
 end
