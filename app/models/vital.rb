@@ -55,12 +55,12 @@ class Vital < ApplicationRecord
     display_list(page)
   }
   
-  #orderをまとめる方法は？#コントローラーからどう渡すか
-  scope :on_weeks, ->{ where(day: Time.zone.today.all_week) }
+  #orderをまとめる方法は？#コントローラーから:descをどう渡すか
+  scope :on_month, ->{ where(day: Time.zone.today.all_month) }
   scope :vitals_order_asc, -> { order(day: :asc) }
-  scope :vitals_week, -> (user) {
+  scope :vitals_month, -> (user) {
     vitals_by_user(user).
-    on_weeks.
+    on_month.
     vitals_order_asc
   }
 end

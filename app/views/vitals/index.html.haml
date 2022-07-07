@@ -1,9 +1,5 @@
 .container
-  .tabs
-    .tabs_item.active
-      今日
-    .tabs_item
-      = link_to '1週間' ,vital_weeks_path
+  = render 'commons/tab'
   - @vitals.each do |vital|
     = link_to vital_path(vital) do
       .card
@@ -26,7 +22,7 @@
           .card_content
             = image_tag 'water.png',size: "50x50"
             = " x #{vital.moisture_quantity}杯"
-            = "(#{vital.moisture_supply}mL)" 
+            = "(#{vital.moisture_supply}mL)"
             = moisture_supply_check(vital)
   = paginate @vitals
   = render 'new_btn'
