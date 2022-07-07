@@ -2,17 +2,10 @@
   = render 'commons/tab'
   - @memos.each do |memo|
     .card
-      .card_vital.container.table-responsive
-        = image_tag 'water.png',size: "50x50"
-      .card_detail
-        = memo.title
-        .card_content
-          .card_comment
-            コメント入れる
-          .card_day
-            %p日時
-        .card_content
-        　= memo.content
+      = image_tag 'water.png',size: "50x50"
+      = memo.title
+      %br
+      = memo.content
   = paginate @memos
   - if user_signed_in?
     = link_to new_memo_path do
