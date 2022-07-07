@@ -1,5 +1,6 @@
 .container
   = render 'commons/tab'
+  = render 'commons/search'
   - @vitals.each do |vital|
     = link_to vital_path(vital) do
       .card
