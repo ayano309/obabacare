@@ -52,7 +52,7 @@ class VitalsController < ApplicationController
   def set_vital
     @vital = current_user.vitals.find(params[:id])
   end
-  
+
   def set_user
     @user = current_user
   end
