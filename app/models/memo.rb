@@ -3,6 +3,7 @@
 # Table name: memos
 #
 #  id         :integer          not null, primary key
+#  category   :integer
 #  content    :text             not null
 #  title      :string           not null
 #  created_at :datetime         not null
@@ -19,6 +20,13 @@ class Memo < ApplicationRecord
   
   validates :title , presence: true
   validates :content , presence: true
+  
+  enum category: {
+    reserved: 0,
+    item: 1,
+    shop: 2,
+    others: 3
+  }
   
   #ページネーション
   extend PageList
