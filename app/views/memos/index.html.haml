@@ -16,7 +16,10 @@
             - else
               = image_tag 'water.png'
           .card_memo-detail
-            %h2= memo.title
+            %h2
+              = memo.title
+            %p
+              = memo.category_i18n
             %br
             %p= memo.content
   = paginate @memos

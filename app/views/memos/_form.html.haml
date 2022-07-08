@@ -7,6 +7,10 @@
     %div
       = f.file_field :image, accept: "image/*"
     %div
+      = f.label :category, 'カテゴリー'
+    %div
+      = f.select :category, Memo.categories_i18n.invert, {include_blank: "カテゴリーを選択して下さい"}, {class: "form-control", required: true}
+    %div
       = f.label :title, 'タイトル'
     %div
       = f.text_field :title, class: 'text'

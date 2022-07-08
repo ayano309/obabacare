@@ -40,7 +40,7 @@ class MemosController < ApplicationController
 
   private
   def memo_params
-    params.require(:memo).permit(:content,:title,:image)  
+    params.require(:memo).permit(:content,:title,:image,:category)  
   end
 
   def set_memo

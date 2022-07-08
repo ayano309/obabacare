@@ -1,0 +1,8 @@
+ja:
+  enums:
+    memo:
+      category:
+        advice: 'アドバイス'
+        medicine: '薬'
+        care_supplies: '介護用品'
+        others: 'その他'

@@ -21,10 +21,11 @@ class Memo < ApplicationRecord
   validates :title , presence: true
   validates :content , presence: true
   
+  
   enum category: {
-    reserved: 0,
-    item: 1,
-    shop: 2,
+    advice: 0,
+    medicine: 1,
+    care_supplies: 2,
     others: 3
   }
   
