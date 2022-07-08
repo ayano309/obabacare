@@ -3,7 +3,11 @@
     = render 'layouts/error', object: memo
   = form_with(model: memo, local: true) do |f|
     %div
-      = f.label :title, 'タイトル(カテゴリ)'
+      = f.label :image, '画像'
+    %div
+      = f.file_field :image, accept: "image/*"
+    %div
+      = f.label :title, 'タイトル'
     %div
       = f.text_field :title, class: 'text'
     %div

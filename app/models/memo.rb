@@ -15,11 +15,12 @@
 #
 class Memo < ApplicationRecord
   belongs_to :user
-  #ページネーション
+  has_one_attached :image
   
   validates :title , presence: true
   validates :content , presence: true
   
+  #ページネーション
   extend PageList
   scope :memo_by_user, -> (user) { where(user_id: user) }
   scope :on_memos, -> (user,page) {

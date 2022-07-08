@@ -9,8 +9,12 @@
             .dropdown-content.mini
               = link_to '編集する',edit_memo_path(memo)
               = link_to '削除する',memo_path(memo),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
-        .d-flex.card_memo_image
-          = image_tag 'water.png'
+        .d-flex
+          .card_memo_image
+            - if memo.image.attached?
+              = image_tag memo.image
+            - else
+              = image_tag 'water.png'
           .card_memo-detail
             %h2= memo.title
             %br
