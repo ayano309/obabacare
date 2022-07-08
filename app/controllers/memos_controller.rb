@@ -6,7 +6,11 @@ class MemosController < ApplicationController
   def index
     if params[:name].present?
       @memos = Memo.seach_category(params[:name]).on_memos(@user, params[:page])
-    elsif
+    elsif params[:keyword].present?
+      @keyword = params[:keyword].strip
+      @memos = Memo.search_information(@keyword).on_memos(@user, params[:page])
+    else
+      @keyword = ""
       @memos = Memo.on_memos(@user, params[:page])
     end
   end

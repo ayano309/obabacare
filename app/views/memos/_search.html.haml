@@ -1,0 +1,5 @@
+= form_with url: memos_path, method: :get, local: true do |f|
+  .d-flex.flex-inline.form-group
+    .d-flex.align-items-center
+    = f.text_field :keyword, value: @keyword
+    = f.submit "検索", class: "btn btn-secondary"

@@ -39,5 +39,9 @@ class Memo < ApplicationRecord
 
   #カテゴリー検索
   scope :seach_category, -> (name){where(category: name)}
-
+  
+  #メモ検索
+  scope :search_information, -> (keyword) { 
+    where("title LIKE :keyword OR content LIKE :keyword ", keyword: "%#{keyword}%")
+  }
 end
