@@ -9,9 +9,10 @@
         .card_detail
           .card_content
             .card_comment
-              %p 
-                最新コメント:
-                %br
+              %p.card_title
+                最新コメント
+              %br
+              %div{:class => "#{comment_exists?(vital.comments)}"}
                 - vital.comments.last(1).each do |comment|
                   = comment.content
             .card_faces
@@ -25,6 +26,8 @@
             .card_day
               %p= vital.vital_created_at
           .card_content
+            %p.card_title
+              水分補給
             = image_tag 'water.png',size: "50x50"
             = " x #{vital.moisture_quantity}杯"
             = "(#{vital.moisture_supply}mL)"
