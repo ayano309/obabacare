@@ -9,7 +9,12 @@
         .card_detail
           .card_content
             .card_comment
-              コメント入れる
+              %p.card_title
+                最新コメント
+              %br
+              %div{:class => "#{comment_exists?(vital.comments)}"}
+                - vital.comments.last(1).each do |comment|
+                  = comment.content
             .card_faces
               - if user_signed_in?
                 - if current_user.defecation_by?(vital)
@@ -21,9 +26,13 @@
             .card_day
               %p= vital.vital_created_at
           .card_content
+            %p.card_title
+              水分補給
             = image_tag 'water.png',size: "50x50"
             = " x #{vital.moisture_quantity}杯"
             = "(#{vital.moisture_supply}mL)"
-            = moisture_supply_check(vital)
+            %br
+            .red
+              = moisture_supply_check(vital)
   = paginate @vitals
   = render 'new_btn'

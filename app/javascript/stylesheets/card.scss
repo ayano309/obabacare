@@ -7,24 +7,28 @@ $feces-size: 30px;
   margin: 16px 0;
   cursor: pointer;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-  
+
+  &_title{
+    font-weight: bold;
+  }
   &_vital {
     height: 150px;
     position: relative;
     overflow: scroll;
   }
-  
+
   &_detail{
     display: flex;
   }
-  
+
   &_content {
     padding: 16px 16px;
+    width: 50%;
   }
 
-  &_comment{
-    font-size: 22px;
-    margin-bottom: 8px;
+  &_comment_detail {
+    border: 3px solid $primary-color;
+    padding: 10px;
   }
 
   &_feces {
@@ -38,7 +42,7 @@ $feces-size: 30px;
       height: $feces-size;
     }
   }
-  
+
   &_day {
     font-weight: bold;
   	position: absolute;
@@ -58,5 +62,48 @@ $feces-size: 30px;
   	}
   }
 
-  
+  //1ヶ月のvital一覧
+  &_month{
+    height: 500px;
+    overflow: scroll;
+  }
+
+　//メモ機能
+  &_memo{
+    height: 200px;
+  }
+
+  &_memo-detail{
+    height: 300px;
+    margin-left: 5%;
+    padding: 10px;
+    overflow: scroll;
+    h2{
+      font-weight: bold;
+      font-size: 1.4em;
+    	line-height: 1em;
+    	margin: 0 0 10px 0;
+    }
+  }
+}
+
+.card_memo_image{
+  img{
+   weight: 200px;
+   height: 200px;
+   object-fit: cover;
+  }
+}
+
+@media screen and (max-width: 480px) {
+	.card_memo h2 {
+		font-size: 1.3em;
+	}
+	.card_memo_image{
+    img{
+     weight: 100px;
+     height: 100px;
+     object-fit: cover;
+    }
+	}
 }

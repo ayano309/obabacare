@@ -2,6 +2,6 @@ class VitalMonthsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @vitals = Vital.vitals_month(current_user)
+    @vital_months = Vital.vitals_month(current_user)
   end
 end

@@ -25,7 +25,8 @@ class User < ApplicationRecord
 
   has_many :vitals, dependent: :destroy
   has_many :defecations, dependent: :destroy
-
+  has_many :memos, dependent: :destroy
+  
   EMAIL_REGEX =  /\A\S+@\S+\.\S+\z/.freeze
 
   validates :name, presence: true, length: { maximum: 20 }
