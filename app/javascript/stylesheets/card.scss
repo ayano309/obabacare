@@ -38,7 +38,7 @@ $feces-size: 30px;
       height: $feces-size;
     }
   }
-  
+
   &_day {
     font-weight: bold;
   	position: absolute;
@@ -62,4 +62,40 @@ $feces-size: 30px;
     height: 500px;
     overflow: scroll;
   }
+
+  &_memo{
+    height: 200px;
+    overflow: scroll;
+
+    &_image{
+      img{
+       weight: 200px;
+       height: 200px;
+       object-fit: cover;
+      }
+    }
+  }
+  &_memo-detail{
+    margin-left: 5%;
+
+    h2{
+      font-weight: bold;
+      font-size: 1.4em;
+    	line-height: 1em;
+    	margin: 0 0 10px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+	.card_memo h2 {
+		font-size: 1.3em;
+	}
+	.card_memo_image{
+    img{
+     weight: 100px;
+     height: 100px;
+     object-fit: cover;
+    }
+	}
 }
