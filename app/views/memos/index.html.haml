@@ -19,7 +19,8 @@
             %h2
               = memo.title
             %p.card_memo-category
-              = memo.category_i18n
+              = link_to  memos_path(name: memo.category) do
+                = memo.category_i18n
             %br
             %p= memo.content
   = paginate @memos
