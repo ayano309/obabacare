@@ -3,14 +3,14 @@
   - @memos.each do |memo|
     .card.card_memo
       .container
-        .card_mem_content.text-right
+        .card_memo_content.text-right
           .dropdown
             = image_tag "actions.svg",class: 'dropbtn'
             .dropdown-content.mini
               = link_to '編集する',edit_memo_path(memo)
               = link_to '削除する',memo_path(memo),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
         .d-flex
-          .card_memo_image
+          .card_memo-image
             - if memo.image.attached?
               = image_tag memo.image
             - else
@@ -18,7 +18,7 @@
           .card_memo-detail
             %h2
               = memo.title
-            %p
+            %p.card_memo-category
               = memo.category_i18n
             %br
             %p= memo.content
@@ -26,4 +26,5 @@
   - if user_signed_in?
     = link_to new_memo_path do
       .float_btn
+        new
         %i.fa.fa-plus
