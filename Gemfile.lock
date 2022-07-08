@@ -102,6 +102,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erb2haml (0.1.5)
       html2haml
     erubi (1.10.0)
@@ -327,6 +329,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise
+  enum_help
   erb2haml
   factory_bot_rails
   hamlit

@@ -85,9 +85,30 @@ $feces-size: 30px;
     	margin: 0 0 10px 0;
     }
   }
+  
+  &_memo-category{
+    	display: inline-block;
+    	margin: 0 .1em .6em 0;
+    	padding: .6em;
+    	line-height: 1;
+    // 	text-decoration: none;
+    	color: #0000ee;
+    	background-color: #fff;
+    	border: 1px solid #0000ee;
+    	border-radius: 2em;
+
+    &:before {
+    	content: "#";	
+    }
+    
+    &:hover {
+    	color: #fff;
+    	background-color:  #0000ee;
+    }
+  }
 }
 
-.card_memo_image{
+.card_memo-image{
   img{
    weight: 200px;
    height: 200px;
@@ -99,7 +120,7 @@ $feces-size: 30px;
 	.card_memo h2 {
 		font-size: 1.3em;
 	}
-	.card_memo_image{
+	.card_memo-image{
     img{
      weight: 100px;
      height: 100px;

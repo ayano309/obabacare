@@ -2,9 +2,17 @@ class MemosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_memo, only: %i[edit update]
   before_action :set_user, only: %i[index new create destroy]
-  
+
   def index
-    @memos = Memo.on_memos(@user, params[:page])
+    if params[:name].present?
+      @memos = Memo.seach_category(params[:name]).on_memos(@user, params[:page])
+    elsif params[:keyword].present?
+      @keyword = params[:keyword].strip
+      @memos = Memo.search_information(@keyword).on_memos(@user, params[:page])
+    else
+      @keyword = ""
+      @memos = Memo.on_memos(@user, params[:page])
+    end
   end
 
   def new
@@ -40,7 +48,7 @@ class MemosController < ApplicationController
 
   private
   def memo_params
-    params.require(:memo).permit(:content,:title,:image)  
+    params.require(:memo).permit(:content,:title,:image,:category)
   end
 
   def set_memo
