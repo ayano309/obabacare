@@ -12,7 +12,9 @@
   - vitals.each do |vital|
     %tbody
       %tr{:id => "vital_#{vital.id}"}
-        %td= vital.vital_created_at
+        %td
+          =link_to vital_path(vital.id) , class: "btn btn-sm btn-secondary"do
+            = vital.vital_created_at
         %td{:class => "#{check_temprature(vital)}"}= vital.temperature
         %td{:class => "#{check_high_bp(vital)}"}= vital.high_bp
         %td{:class => "#{check_low_bp(vital)}"}= vital.low_bp
