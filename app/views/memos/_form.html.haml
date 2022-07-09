@@ -1,4 +1,5 @@
 .container
+  = link_to '戻る', :back, class: "btn btn-secondary btn-sm"
   %ul
     = render 'layouts/error', object: memo
   = form_with(model: memo, local: true) do |f|
