@@ -91,12 +91,13 @@ $feces-size: 30px;
     	margin: 0 .1em .6em 0;
     	padding: .6em;
     	line-height: 1;
-    // 	text-decoration: none;
     	color: #0000ee;
     	background-color: #fff;
     	border: 1px solid #0000ee;
     	border-radius: 2em;
-
+      a{
+        color: #0000ee;
+      }
     &:before {
     	content: "#";	
     }
@@ -104,6 +105,9 @@ $feces-size: 30px;
     &:hover {
     	color: #fff;
     	background-color:  #0000ee;
+    	a{
+    	  color: #fff;
+    	}
     }
   }
 }
