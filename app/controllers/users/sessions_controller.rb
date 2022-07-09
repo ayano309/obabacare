@@ -17,6 +17,13 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
+  
+  #ゲストログイン
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to vitals_path, notice: 'guestuserでログインしました。'
+  end
 
   # protected
 

@@ -3,10 +3,14 @@
     .header_logos
       %p.header_pageTitle
         - if user_signed_in?
-          = link_to 'おばばcare', vitals_path
+          = link_to  vitals_path do
+            = image_tag "obaba-logo.png", size: "250x250"
         - else
-          = link_to 'おばばcare', root_path
-        = image_tag 'obaba.png', class: 'header_avatar dropbtn'
+          = link_to  root_path do
+            = image_tag "obaba-logo.png", size: "250x250"
+          %br
+          = link_to "ログイン", new_user_session_path ,class: 'header_loginBtn'
+          = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: 'header_loginBtn', method: :post
     - if user_signed_in?
       .openbtn
         %span
@@ -16,12 +20,9 @@
         #g-nav-list
           / ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除
           %ul
-            %li= link_to "VITAL", vitals_path
-            %li
-              %a{:href => "#"} Memo
-            %li= link_to 'ログアウト', destroy_user_session_path, data: { method: 'delete' }
-    - else
-      = link_to "ログイン", new_user_session_path ,class: 'header_loginBtn'
+            %li= link_to "Vital", vitals_path
+            %li= link_to "Memo", memos_path
+            %li= link_to 'logout', destroy_user_session_path, data: { method: 'delete' }
   %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
   :javascript
     $(".openbtn").click(function () {//ボタンがクリックされたら

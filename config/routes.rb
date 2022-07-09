@@ -3,6 +3,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
+  #ゲストログイン
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+  
   root to: 'homes#index'
   get 'terms', to: 'homes#terms'
   get 'privacy', to: 'homes#privacy'
