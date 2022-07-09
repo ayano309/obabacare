@@ -4,6 +4,9 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   root to: 'homes#index'
+  get 'terms', to: 'homes#terms'
+  get 'privacy', to: 'homes#privacy'
+  
   resources :vitals do
     resource :defecations, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
