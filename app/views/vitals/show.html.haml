@@ -1,6 +1,6 @@
 .container
   = link_to "一覧へ",vitals_path, class: "btn btn-secondary btn-sm"
-  
+
   .vital{:id => "vital_#{@vital.id}"}
     .vital_day
       %h1.vital_title
@@ -11,7 +11,7 @@
           = link_to '編集する',edit_vital_path(@vital)
           = link_to '削除する',vital_path(@vital),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
     .vital_detail
-      .container.table-responsive 
+      .container.table-responsive
         = render 'vital', vital: @vital
     .vital_content
       .vital_moisture
@@ -27,7 +27,7 @@
     .vital_feces.feces-btn
       = render 'defecations/feces-btn' , vital: @vital
 
-
+  // コメント
   .vital
     %h2.vital_comment コメント一覧
     %ul.timeline
@@ -38,5 +38,5 @@
     %div
       = f.label :content, 'コメント内容'
     %div
-      = f.text_field :content, class: 'text'
+      = f.text_field :content, class: 'text', placeholder: "#{I18n.l(@vital.day, format: :default)} のコメント入力"
     = f.submit '保存', class: 'btn-log'
