@@ -2,6 +2,9 @@
 @import './variables';
 footer {
   background-color: $primary-color;
+  position: sticky;
+  top: 100vh;
+  width: 100%;
 
 }
 
@@ -34,3 +37,16 @@ footer {
     }
   }
 }
+
+//規約
+.wrap-content {
+  border-radius: 15px;
+  margin: 20px 0;
+  background: #f9fcfb;
+  border: 5px solid $primary-color;
+  font-size: 1rem;
+
+  @media screen and (max-width: 767px) {
+    font-size: 0.5rem;
+  }
+} 
