@@ -37,4 +37,11 @@ class User < ApplicationRecord
   def defecation_by?(vital)
     defecations.exists?(vital_id: vital.id)
   end
+  
+  def self.guest
+    find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.name = "guestuser"
+    end
+  end
 end

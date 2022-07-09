@@ -8,7 +8,9 @@
         - else
           = link_to  root_path do
             = image_tag "obaba-logo.png", size: "250x250"
+          %br
           = link_to "ログイン", new_user_session_path ,class: 'header_loginBtn'
+          = link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: 'header_loginBtn', method: :post
     - if user_signed_in?
       .openbtn
         %span
