@@ -12,13 +12,14 @@
         .profilePage_user_actionButton
           = link_to 'Edit', edit_profile_path
       .profilePage_user_important
-        = current_user.birthday
+        #{current_user.birthday}
+        (#{current_user.age})
         %br
         = current_user.profile&.gender_i18n
         %br
         = current_user.profile&.blood_type_i18n
         %br
-        #{current_user.weight}kg
+        #{current_user.weight} 
         %br
         .profilePage_user_term
           = current_user.profile&.important_term

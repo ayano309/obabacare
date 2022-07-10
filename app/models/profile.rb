@@ -21,4 +21,18 @@ class Profile < ApplicationRecord
   
   enum gender: { male: 0, female: 1}
   enum blood_type: { A: 0, B: 1, O: 2, AB: 3 }
+  
+  
+  #年齢
+  def age
+    return '不明' unless birthday.present?
+    years = Time.zone.now.year - birthday.year
+    days = Time.zone.now.yday - birthday.yday
+
+    if days < 0
+      "#{years - 1}歳"
+    else
+      "#{years}歳"
+    end
+  end
 end
