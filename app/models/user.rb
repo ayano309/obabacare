@@ -39,10 +39,16 @@ class User < ApplicationRecord
     defecations.exists?(vital_id: vital.id)
   end
   
+  #ゲストログイン
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
+  end
+  
+  #プロフィール
+  def prepare_profile
+    profile || build_profile
   end
 end
