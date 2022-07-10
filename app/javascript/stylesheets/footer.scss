@@ -13,23 +13,22 @@ footer {
   &_balloon{
     position: relative;
     display: inline-block;
-    margin: 1.5em 0 1.5em 15px;
+    margin: 0;
     padding: 7px 10px;
     min-width: 120px;
     max-width: 100%;
     color: #555;
     font-size: 16px;
     background: #fff;
-    border-radius: 4px;
     
     &::before {
       content: "";
       position: absolute;
-      top: 50%;
-      left: -30px;
-      margin-top: -15px;
+      top: -30px;
+      left: 50%;
+      margin-left: -15px;
       border: 15px solid transparent;
-      border-right: 15px solid #fff;
+      border-bottom: 15px solid #fff;
     }
     p{
       margin: 0;
