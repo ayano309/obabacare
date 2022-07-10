@@ -1,1 +1,26 @@
-Edit
+.container
+  = link_to '戻る', :back, class: "btn btn-secondary btn-sm"
+  %ul
+    = render 'layouts/error', object: @profile
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    %div
+      = f.label :birthday, '生年月日'
+    %div
+      = f.date_field :birthday, class: 'text'
+    %div
+      = f.label :blood_type, '血液型'
+    %div
+      = f.select :blood_type, Profile.blood_types_i18n.invert, {include_blank: "血液型を選択してください"}, {class: "text"} 
+    %div
+      = f.label :gender, '性別'
+    %div
+      = f.select :gender, Profile.genders_i18n.invert, {include_blank: "性別を選択してください"}, { class: 'text' }
+    %div
+      = f.label :weight, '体重'
+    %div
+      = f.text_field :weight, class: 'text', placeholder: "46.2"
+    %div
+      = f.label :important_term, '重要事項'
+    %div
+      = f.text_area :important_term, placeholder: "(例)血圧高め、薬の副作用歴など"
+    = f.submit '保存', class: 'btn-log'
