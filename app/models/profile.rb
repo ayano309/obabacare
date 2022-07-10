@@ -18,4 +18,7 @@
 #
 class Profile < ApplicationRecord
   belongs_to :user
+  
+  enum gender: { male: 0, female: 1}
+  enum blood_type: { A: 0, B: 1, O: 2, AB: 3 }
 end
