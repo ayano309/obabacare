@@ -1,0 +1,54 @@
+@import 'variables';
+$image_size: 56px;
+.profilePage {
+  margin-top: 24px;
+
+  &_user {
+    display: flex;
+
+    &_image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      img {
+        width: $image_size;
+        height: $image_size;
+      }
+    }
+
+    &_basicInfo {
+      margin-left: 16px;
+    }
+
+    &_actionButton {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 12px;
+      border-radius: 4px;
+      border: 1px solid $primary-color;
+      font-weight: bold;
+      padding: 0px 8px;
+
+      a {
+        color: $primary-color;
+      }
+    }
+
+    &_detail {
+      display: flex;
+      margin-bottom: 8px;
+    }
+
+    &_name {
+      font-size: 18px;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    &_important {
+      font-size: 12px;
+    }
+  }
+}

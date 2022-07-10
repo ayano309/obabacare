@@ -1,1 +1,17 @@
-show
+.container.profilePage
+  .profilePage_user
+    .profilePage_user_image
+      = image_tag 'obaba-care.png'
+    .profilePage_user_basicInfo
+      .profilePage_user_detail
+        .profilePage_user_name
+          = current_user.name
+        .profilePage_user_actionButton
+          = link_to 'Edit', edit_profile_path
+      .profilePage_user_important
+      
+// #  birthday       :date
+// #  blood_type     :integer
+// #  gender         :integer
+// #  important_term :text
+// #  weight         :float
