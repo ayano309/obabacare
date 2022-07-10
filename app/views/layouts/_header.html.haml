@@ -20,6 +20,7 @@
         #g-nav-list
           / ナビの数が増えた場合縦スクロールするためのdiv※不要なら削除
           %ul
+            %li= image_tag "obaba-logo.png", size: "150x150"
             %li= link_to "Vital", vitals_path
             %li= link_to "Memo", memos_path
             %li= link_to 'logout', destroy_user_session_path, data: { method: 'delete' }
