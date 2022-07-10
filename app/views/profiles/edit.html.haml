@@ -16,9 +16,9 @@
     %div
       = f.select :gender, Profile.genders_i18n.invert, {include_blank: "性別を選択してください"}, { class: 'text' }
     %div
-      = f.label :weight, '体重'
+      = f.label :weight, '体重(kg)'
     %div
-      = f.text_field :weight, class: 'text', placeholder: "46.2"
+      = f.text_field :weight, class: 'text', placeholder: "46.2(数値のみ)"
     %div
       = f.label :important_term, '重要事項'
     %div

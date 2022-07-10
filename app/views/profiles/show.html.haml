@@ -1,7 +1,10 @@
 .container.profilePage
   .profilePage_user
     .profilePage_user_image
-      = image_tag 'obaba-care.png'
+      - if current_user.profile&.gender == "male" 
+        = image_tag 'ojiji.png'
+      -else
+        = image_tag 'obaba-care.png'
     .profilePage_user_basicInfo
       .profilePage_user_detail
         .profilePage_user_name
@@ -9,9 +12,13 @@
         .profilePage_user_actionButton
           = link_to 'Edit', edit_profile_path
       .profilePage_user_important
-      
-// #  birthday       :date
-// #  blood_type     :integer
-// #  gender         :integer
-// #  important_term :text
-// #  weight         :float
+        = current_user.birthday
+        %br
+        = current_user.profile&.gender_i18n
+        %br
+        = current_user.profile&.blood_type_i18n
+        %br
+        #{current_user.weight}kg
+        %br
+        .profilePage_user_term
+          = current_user.profile&.important_term

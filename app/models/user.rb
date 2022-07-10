@@ -34,6 +34,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: true },
   format: { with: EMAIL_REGEX, message: 'は正しいメールアドレスを入力してください' }, length: { maximum: 256 }
 
+
+  delegate :birthday,:weight, to: :profile, allow_nil: true
+  
   #排便記録
   def defecation_by?(vital)
     defecations.exists?(vital_id: vital.id)
