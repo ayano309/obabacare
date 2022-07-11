@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
+    @medical_histories = current_user.medical_histories
   end
 
   def edit

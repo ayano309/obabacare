@@ -1,9 +1,6 @@
 class MedicalHistoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_medical_history, only: %i[edit update]
-  def index
-    @medical_histories = current_user.medical_histories
-  end
 
   def new
     @medical_history = current_user.medical_histories.build
