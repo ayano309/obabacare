@@ -24,9 +24,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :vitals, dependent: :destroy
+  #排便機能
   has_many :defecations, dependent: :destroy
   has_many :memos, dependent: :destroy
   has_one :profile, dependent: :destroy
+  #既往歴
+  has_many :medical_histories, dependent: :destroy
   
   EMAIL_REGEX =  /\A\S+@\S+\.\S+\z/.freeze
 

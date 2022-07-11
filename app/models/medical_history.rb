@@ -15,4 +15,5 @@
 #  index_medical_histories_on_user_id  (user_id)
 #
 class MedicalHistory < ApplicationRecord
+  belongs_to :user
 end
