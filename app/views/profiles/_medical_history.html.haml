@@ -12,8 +12,16 @@
               = medical.disease_name
               = medical.in_treatment
               = medical.when_onset
-    .medical_histories
-      %input#tab-two{:name => "tabs", :type => "checkbox"}/
-      %label{:for => "tab-two"} 現病歴
-      .medical_histories_content
-        %p テキスト
+  .medical_histories
+    %input#tab-two{:name => "tabs", :type => "checkbox"}/
+    %label{:for => "tab-two"} 現病歴
+    .medical_histories_content
+      %p 
+        - @medical_histories.each do |medical|
+          .card.w-50.mx-auto
+            %p.container
+              既往歴
+              
+              = medical.disease_name
+              = medical.in_treatment
+              = medical.when_onset
