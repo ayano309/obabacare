@@ -6,3 +6,12 @@ ja:
         medicine: '薬'
         care_supplies: '介護用品'
         others: 'その他'
+    profile:
+      gender:
+        male: '男性'
+        female: '女性'
+      blood_type: 
+        A: 'A型'
+        B: 'B型'
+        O: 'O型'
+        AB: 'AB型'

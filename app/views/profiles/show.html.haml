@@ -1,0 +1,25 @@
+.container.profilePage
+  .profilePage_user
+    .profilePage_user_image
+      - if current_user.gender == "male" 
+        = image_tag 'ojiji.png'
+      -else
+        = image_tag 'obaba-care.png'
+    .profilePage_user_basicInfo
+      .profilePage_user_detail
+        .profilePage_user_name
+          = current_user.name
+        .profilePage_user_actionButton
+          = link_to 'Edit', edit_profile_path
+      .profilePage_user_important
+        #{current_user.birthday}
+        (#{current_user.age})
+        %br
+        = current_user.profile&.gender_i18n
+        %br
+        = current_user.profile&.blood_type_i18n
+        %br
+        #{current_user.weight} 
+        %br
+        .profilePage_user_term
+          = current_user.profile&.important_term

@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :vitals, dependent: :destroy
   has_many :defecations, dependent: :destroy
   has_many :memos, dependent: :destroy
+  has_one :profile, dependent: :destroy
   
   EMAIL_REGEX =  /\A\S+@\S+\.\S+\z/.freeze
 
@@ -33,15 +34,24 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { case_sensitive: true },
   format: { with: EMAIL_REGEX, message: 'は正しいメールアドレスを入力してください' }, length: { maximum: 256 }
 
+
+  delegate :birthday,:weight,:age,:gender, to: :profile, allow_nil: true
+  
   #排便記録
   def defecation_by?(vital)
     defecations.exists?(vital_id: vital.id)
   end
   
+  #ゲストログイン
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
       user.name = "guestuser"
     end
+  end
+  
+  #プロフィール
+  def prepare_profile
+    profile || build_profile
   end
 end
