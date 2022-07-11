@@ -1,7 +1,7 @@
 .container.profilePage
   .profilePage_user
     .profilePage_user_image
-      - if current_user.profile&.gender == "male" 
+      - if current_user.gender == "male" 
         = image_tag 'ojiji.png'
       -else
         = image_tag 'obaba-care.png'
