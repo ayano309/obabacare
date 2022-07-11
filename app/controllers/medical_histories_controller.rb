@@ -1,0 +1,2 @@
+class MedicalHistoriesController < ApplicationController
+end
