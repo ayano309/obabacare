@@ -1,0 +1,17 @@
+.profilePage_user_have
+  = link_to  new_medical_history_path do
+    .profilePage_user_have_item
+      %p.count
+        既往歴
+      %p.title 
+        登録する
+  = link_to  new_medical_history_path do
+    .profilePage_user_have_item
+      %p.count
+        = current_user.name
+      %p.title Followers
+  = link_to new_medical_history_path do
+    .profilePage_user_have_item
+      %p.count
+        = current_user.name
+      %p.title Folllowing
