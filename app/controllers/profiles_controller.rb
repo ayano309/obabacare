@@ -3,7 +3,8 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user.profile
-    @medical_histories = current_user.medical_histories
+    @current_medical_history = current_user.medical_histories.where(in_treatment: 'true')
+    @medical_histories = current_user.medical_histories.where(in_treatment: 'false')
   end
 
   def edit
