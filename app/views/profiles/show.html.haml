@@ -24,6 +24,6 @@
         .profilePage_user_term
           = current_user.profile&.important_term
           
-          
-          
-  = link_to 'NEW既往歴', new_medical_history_path
+= render 'profile_btn'
+= render 'medical_history'
+ 

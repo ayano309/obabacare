@@ -1,0 +1,63 @@
+@import 'variables';
+
+.medical_histories {
+	position: relative;
+	overflow: hidden;
+	width: 60%;
+	margin: 0 auto;
+	color: #ffffff;
+	
+	input {
+  	position: absolute;
+  	z-index: -1;
+  	opacity: 0;
+  }
+  label {
+  	font-weight: bold;
+  	line-height: 3;
+  	position: relative;
+  	display: block;
+  	padding: 0 0 0 1em;
+  	cursor: pointer;
+  	margin: 0 0 1px 0;
+  	background: $primary-color;
+  	text-align: center;
+  }
+  
+  &_content{
+  	overflow: hidden;
+  	max-height: 0;
+  	-webkit-transition: max-height 0.35s;
+  	transition: max-height 0.35s;
+  	color: #333333;
+  	background: #ffffff;
+  	
+  	p{
+  	  	margin: 1em;
+  	}
+  }
+}
+
+/* :checked */
+.medical_histories input:checked ~ .medical_histories_content {
+	max-height: 20em;
+}
+/* Icon  (+のこと)*/
+.medical_histories label::after {
+	line-height: 3;
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: block;
+	width: 3em;
+	height: 3em;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
+	text-align: center;
+}
+.medical_histories input[type=checkbox] + label::after {
+	content: '+';
+}
+.medical_histories input[type=checkbox]:checked + label::after {
+	transform: rotate(315deg);
+}
