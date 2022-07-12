@@ -61,3 +61,9 @@
 .medical_histories input[type=checkbox]:checked + label::after {
 	transform: rotate(315deg);
 }
+
+
+// card内
+.disease_name{
+	font-weight: bold;
+}

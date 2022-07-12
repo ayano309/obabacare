@@ -16,4 +16,9 @@
 #
 class MedicalHistory < ApplicationRecord
   belongs_to :user
+  
+  #発症時期
+  def disease_when_onset
+    I18n.l(self.when_onset, format: :default)
+  end
 end
