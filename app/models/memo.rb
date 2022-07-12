@@ -28,12 +28,12 @@ class Memo < ApplicationRecord
     care_supplies: 2,
     others: 3
   }
-
+  #誰の投稿か
+  include IsWhoPosts
   #ページネーション
   extend PageList
-  scope :memo_by_user, -> (user) { where(user_id: user) }
   scope :on_memos, -> (user,page) {
-    memo_by_user(user).
+    by_user(user).
     display_list(page)
   }
 

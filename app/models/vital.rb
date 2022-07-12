@@ -45,12 +45,12 @@ class Vital < ApplicationRecord
   
   #ページネーション
   extend PageList
-  
+  #誰の投稿か
+  include IsWhoPosts
   #vitalの降順でページネーション
-  scope :vitals_by_user, -> (user) { where(user_id: user) }
   scope :vitals_order, -> { order(day: :desc) }
   scope :on_vitals, -> (user,page) {
-    vitals_by_user(user).
+    by_user(user).
     vitals_order.
     display_list(page)
   }
@@ -60,7 +60,7 @@ class Vital < ApplicationRecord
   scope :on_month, ->{ where(day: Time.zone.today.all_month) }
   scope :vitals_order_asc, -> { order(day: :asc) }
   scope :vitals_month, -> (user) {
-    vitals_by_user(user).
+    by_user(user).
     on_month.
     vitals_order_asc
   }
