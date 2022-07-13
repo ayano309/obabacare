@@ -27,6 +27,10 @@ ja:
         gender: '性別'
         important_term: '重要事項'
         weight: '体重'
+      medical_history:
+        disease_name: 'これまでにかかったことのある病気名'
+        in_treatment: '治療中ですか'
+        when_onset: 'いつ頃ですか'
   date:
     abbr_day_names:
     - 日
