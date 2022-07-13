@@ -7,6 +7,10 @@
 	margin: 0 auto;
 	color: #ffffff;
 	
+	&_scroll{
+		height: 300px;
+		overflow: scroll;
+	}
 	input {
   	position: absolute;
   	z-index: -1;
