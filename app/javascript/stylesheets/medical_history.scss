@@ -36,6 +36,10 @@
   	  	margin: 1em;
   	}
   }
+  &_edit{
+  	display: flex;
+    justify-content: space-between;
+  }
 }
 
 /* :checked */
