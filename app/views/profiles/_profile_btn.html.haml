@@ -1,17 +1,19 @@
 .profilePage_user_have
   = link_to  new_medical_history_path do
-    .profilePage_user_have_item
-      %p.count
+    .profilePage_user_have_item.btn.btn-light
+      %p.title
         既往歴
-      %p.title 
+      %p.new
         登録する
   = link_to  new_medical_history_path do
-    .profilePage_user_have_item
-      %p.count
-        = current_user.name
-      %p.title Followers
+    .profilePage_user_have_item.btn.btn-light
+      %p.title
+        バイタル
+      %p.new
+        登録する
   = link_to new_medical_history_path do
-    .profilePage_user_have_item
-      %p.count
-        = current_user.name
-      %p.title Folllowing
+    .profilePage_user_have_item.btn.btn-light
+      %p.title
+        メモ
+      %p.new
+        登録する
