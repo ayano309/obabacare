@@ -3,13 +3,15 @@
     %input#tab-one{:name => "tabs", :type => "checkbox"}/
     %label{:for => "tab-one"} 既往歴
     .medical_histories_content
-      %p 
-        - if @medical_histories.exists?
-          = render 'medical_histories/medical_history', medical_histories: @medical_histories
+      .medical_histories_scroll
+        %p 
+          - if @medical_histories.exists?
+            = render 'medical_histories/medical_history', medical_histories: @medical_histories
   .medical_histories
     %input#tab-two{:name => "tabs", :type => "checkbox"}/
     %label{:for => "tab-two"} 現病歴
     .medical_histories_content
-      %p 
-        - if @current_medical_history.exists?
-          = render 'medical_histories/medical_history', medical_histories: @current_medical_history
+      .medical_histories_scroll
+        %p 
+          - if @current_medical_history.exists?
+            = render 'medical_histories/medical_history', medical_histories: @current_medical_history

@@ -7,6 +7,10 @@
 	margin: 0 auto;
 	color: #ffffff;
 	
+	&_scroll{
+		height: 300px;
+		overflow: scroll;
+	}
 	input {
   	position: absolute;
   	z-index: -1;
@@ -22,6 +26,7 @@
   	margin: 0 0 1px 0;
   	background: $primary-color;
   	text-align: center;
+  	font-size: 20px;
   }
   
   &_content{
@@ -35,6 +40,10 @@
   	p{
   	  	margin: 1em;
   	}
+  }
+  &_edit{
+  	display: flex;
+    justify-content: space-between;
   }
 }
 

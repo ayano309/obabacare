@@ -47,22 +47,24 @@ class Vital < ApplicationRecord
   extend PageList
   #誰の投稿か
   include IsWhoPosts
+  
+  #並び順
+  scope :vitals_order, -> (order){ order(order) }
+  
   #vitalの降順でページネーション
-  scope :vitals_order, -> { order(day: :desc) }
   scope :on_vitals, -> (user,page) {
     by_user(user).
-    vitals_order.
+    vitals_order(day: :desc).
     display_list(page)
   }
   
   #orderをまとめる方法は？#コントローラーから:descをどう渡すか
   #１ヶ月分のvital情報
   scope :on_month, ->{ where(day: Time.zone.today.all_month) }
-  scope :vitals_order_asc, -> { order(day: :asc) }
   scope :vitals_month, -> (user) {
     by_user(user).
     on_month.
-    vitals_order_asc
+    vitals_order(day: :asc)
   }
   
   #検索
