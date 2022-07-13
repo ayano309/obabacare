@@ -25,4 +25,6 @@ class MedicalHistory < ApplicationRecord
   def disease_when_onset
     I18n.l(self.when_onset, format: :default)
   end
+  
+  scope :is_during_treatment, -> (value){ where(in_treatment: value).order(when_onset: :asc) }
 end
