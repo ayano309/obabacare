@@ -21,6 +21,12 @@ ja:
       memo:
         title: 'タイトル'
         content: '内容'
+      profile:
+        birthday: '誕生日'
+        blood_type: '血液型'
+        gender: '性別'
+        important_term: '重要事項'
+        weight: '体重'
   date:
     abbr_day_names:
     - 日
