@@ -17,6 +17,10 @@
 class MedicalHistory < ApplicationRecord
   belongs_to :user
   
+  validates :disease_name , presence: true
+  validates :in_treatment , presence: true
+  validates :when_onset , presence: true
+  
   #発症時期
   def disease_when_onset
     I18n.l(self.when_onset, format: :default)
