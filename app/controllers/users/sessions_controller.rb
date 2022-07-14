@@ -25,6 +25,16 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to vitals_path, notice: 'guestuserでログインしました。'
   end
   
+  #サインイン後にどこに遷移するか
+  def after_sign_in_path_for(resource)
+    vitals_path
+  end
+
+  #サインアウト後の遷移先
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+  
   protected
  
 

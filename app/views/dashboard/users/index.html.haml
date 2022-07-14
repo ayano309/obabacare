@@ -1,0 +1,30 @@
+.container
+  %h5.font-weight-bold
+    顧客一覧
+  = form_with url: dashboard_users_path, method: :get, local: true do |f|
+    .d-flex.flex-inline.form-group
+      .d-flex.align-items-center
+      = f.text_field :keyword, value: @keyword, placeholder: "ID、氏名、email"
+      = f.submit "検索", class: "btn btn-secondary"
+  .card.container.table-responsive
+    %table.table.table-hover
+      %thead
+        %tr
+          %th.w-25{:scope => "col"} ID
+          %th{:scope => "col"} 名前
+          %th{:scope => "col"} メールアドレス
+          %th{:scope => "col"}
+      %tbody
+        - @users.each do |user|
+          %tr
+            %th{:scope => "row"}= user.id
+            %td= user.name
+            %td= user.email
+            %td
+              - if user.name != "guestuser" 
+                = form_with model: user, url: dashboard_user_path(user), local: true, method: :delete do |f|
+                  - if user.deleted_flg
+                    = f.submit "復帰", class: "btn btn-outline-success  btn-sm"
+                  - else
+                    = f.submit "退会させる", class: "btn btn-outline-danger btn-sm"
+  = paginate @users

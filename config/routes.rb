@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  # 管理者関連
+  devise_for :admins, :controllers => {
+    :sessions => 'admins/sessions'
+  }
+
+  devise_scope :admin do
+    get "dashboard", to: "dashboard#index"
+    get "dashboard/login", to: "admins/sessions#new"
+    post "dashboard/login", to: "admins/sessions#create"
+    delete "dashboard/logout", to: "admins/sessions#destroy"
+    post 'dashboard/guest_sign_in', to: 'admins/sessions#guest_sign_in'
+  end
+  
+  namespace :dashboard do
+    resources :users, only: [:index, :destroy]
+  end
+
+  #ユーザー関連
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'

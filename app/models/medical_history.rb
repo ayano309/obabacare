@@ -21,6 +21,7 @@ class MedicalHistory < ApplicationRecord
   
   validates :when_onset , presence: true
   
+  validates :in_treatment, inclusion: {in: [true, false]}
   #発症時期
   def disease_when_onset
     I18n.l(self.when_onset, format: :default)
