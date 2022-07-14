@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     post "dashboard/login", to: "admins/sessions#create"
     delete "dashboard/logout", to: "admins/sessions#destroy"
   end
+  
+  namespace :dashboard do
+    resources :users, only: [:index, :destroy]
+  end
 
   #ユーザー関連
   devise_for :users, controllers: {
