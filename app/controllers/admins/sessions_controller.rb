@@ -25,7 +25,13 @@ class Admins::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(user)
     root_path
   end
-
+  
+  #ゲストログイン
+  def guest_sign_in
+    user = Admin.guest
+    sign_in user
+    redirect_to dashboard_path, notice: 'guestadminでログインしました。'
+  end
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
