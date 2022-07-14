@@ -17,6 +17,14 @@ class Admins::SessionsController < Devise::SessionsController
   def destroy
     super
   end
+  
+  def after_sign_in_path_for(user)
+    dashboard_path
+  end
+
+  def after_sign_out_path_for(user)
+    root_path
+  end
 
   protected
 
