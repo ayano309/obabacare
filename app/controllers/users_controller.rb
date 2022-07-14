@@ -4,11 +4,19 @@ class UsersController < ApplicationController
   #ユーザー情報表示
   def show; end
     
-  #パスワード編集
+  
   def edit; end
   
+  
+  def update; end
+    
+    
+  #パスワード編集
+  def edit_password; end
+    
+  
   #パスワード更新
-  def update
+  def update_password
     if password_set?
      #update_passwordメソッドをuser.rbに記述
       @user.update_password(user_params)
@@ -19,7 +27,6 @@ class UsersController < ApplicationController
       render "edit_password"
     end
   end
-  
   #退会(論理削除)
   def destroy
     # ユーザーが退会処理をするとき
