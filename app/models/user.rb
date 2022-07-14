@@ -72,10 +72,18 @@ class User < ApplicationRecord
     result
   end
   
+   #ページネーション
+  extend PageList
+  
   #退会機能で使用
   extend SwitchFlg
   # deleted_flugがfalseならtrueを返すようにしている
   def active_for_authentication?
     super && (deleted_flg == false)
   end
+  
+  #管理者側でユーザー検索
+  scope :search_information, -> (keyword) { 
+    where("name LIKE :keyword OR id LIKE :keyword OR email LIKE :keyword", keyword: "%#{keyword}%")
+  }
 end
