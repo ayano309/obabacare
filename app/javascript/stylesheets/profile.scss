@@ -62,8 +62,8 @@ $image_size: 80px;
 
   &_have {
     display: flex;
-    justify-content: space-evenly;
-
+    justify-content: center;
+    flex-wrap: wrap;
     &_item {
       .title {
         font-family: Poppins;
