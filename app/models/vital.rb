@@ -69,7 +69,6 @@ class Vital < ApplicationRecord
   
   #検索
   scope :search_information, -> (keyword) { 
-    where("day LIKE :keyword", keyword: "%#{keyword}%")
+    where(day: keyword.in_time_zone.all_day)
   }
-  
 end
