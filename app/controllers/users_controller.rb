@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   def show; end
     
   #パスワード編集
-  def edit_password; end
+  def edit; end
     
   #パスワード更新
-  def update_password
+  def update
     if password_set?
      #update_passwordメソッドをuser.rbに記述
       @user.update_password(user_params)
