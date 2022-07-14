@@ -3,7 +3,7 @@
   %br
   %span
     = link_to "プロフィール", profile_path
-    \> #{link_to "アカウント設定" , profile_user_path} > #{link_to "アカウント情報の変更"}
+    \> #{link_to "アカウント情報" , profile_user_path} > #{link_to "アカウント情報の変更"}
   %h5.mt-3.font-weight-bold アカウント情報の変更
   = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
     = render "devise/shared/error_messages", resource: resource
