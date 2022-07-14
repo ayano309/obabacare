@@ -1,19 +1,25 @@
 .profilePage_user_have
   = link_to  new_medical_history_path do
-    .profilePage_user_have_item.btn.btn-light
+    .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
         既往歴
       %p.new
         登録する
-  = link_to  new_medical_history_path do
-    .profilePage_user_have_item.btn.btn-light
+  = link_to  new_vital_path do
+    .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
         バイタル
       %p.new
         登録する
   = link_to new_medical_history_path do
-    .profilePage_user_have_item.btn.btn-light
+    .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
         メモ
       %p.new
         登録する
+  = link_to  edit_profile_user_path do
+    .profilePage_user_have_item.btn.btn-outline-secondary
+      %p.title
+        パスワード
+      %p.new
+        変更する
