@@ -1,1 +1,19 @@
-edit
+.container
+  = link_to '戻る', profile_path, class: "btn btn-secondary btn-sm"
+  = form_with url: profile_user_path, local: true, method: :put do |f|
+    .form-group
+      = f.label :password, "新しいパスワード"
+      = f.password_field :password,                                                          |
+        class: "text #{"is-invalid" if @user.errors.messages[:password].present? }", |
+        autocomplete: "new-password"                                                         |
+      - if @user.errors.messages[:password].present?
+        %span.invalid-feedback{:role => "alert"}
+          %strong= @user.errors.messages[:password].first
+    .form-group
+      = f.label :password_confirmation, "確認用"
+      = f.password_field :password_confirmation,                                                          |
+        class: "text #{"is-invalid" if @user.errors.messages[:password_confirmation].present? }", |
+        autocomplete: "new-password"                                                                      |
+    .form-group
+      %button.btn.btn-log{:type => "submit"}
+        パスワード更新

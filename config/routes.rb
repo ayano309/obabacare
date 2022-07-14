@@ -26,8 +26,6 @@ Rails.application.routes.draw do
   resource :profile, only: [:show, :edit, :update] do
     #userのパスワード編集、更新、退会
     resource :user, except: [:index,:new,:create]
-    get "/edit_password", :to =>"users#edit_password"
-    put "/password", :to => "users#update_password"
   end
   #既往歴
   resources :medical_histories, except: [:index, :show]
