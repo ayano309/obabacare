@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   resources :vital_months, only: [:index]
   resources :memos, except: [:show]
   
-  resource :profile, only: [:show, :edit, :update]
+  
+  #プロフィール
+  resource :profile, only: [:show, :edit, :update] do
+    #userのパスワード編集、更新、退会
+    resource :user, only: [:edit, :update, :destroy] 
+  end
   #既往歴
   resources :medical_histories, except: [:index, :show]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
