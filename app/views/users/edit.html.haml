@@ -1,4 +1,5 @@
 .container
+  = link_to '戻る', profile_path, class: "btn btn-secondary btn-sm"
   = form_with url: profile_user_path, local: true, method: :put do |f|
     .form-group
       = f.label :password, "新しいパスワード"
