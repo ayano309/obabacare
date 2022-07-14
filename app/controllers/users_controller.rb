@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
+  before_action :ensure_guest_user, only: [:edit,:update,:destroy]
   #ユーザー情報表示
   def show; end
     
@@ -40,4 +41,10 @@ class UsersController < ApplicationController
     user_params[:password].present? && user_params[:password_confirmation].present? ?
       true : false
   end
+  
+  def ensure_guest_user
+    if current_user.name == "guestuser"
+      redirect_to root_path, notice: 'ゲストユーザーは遷移できません。'
+    end
+  end  
 end
