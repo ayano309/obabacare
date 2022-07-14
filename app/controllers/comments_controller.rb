@@ -4,7 +4,9 @@ class CommentsController < ApplicationController
   def create
     @vital = Vital.find(params[:vital_id])
     @comment = @vital.comments.new(comment_params)
-    @comment.save
+    unless @comment.save
+      render 'error'  #comments/error.js.hamlを参照する 
+    end
     
   end
 

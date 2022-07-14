@@ -32,7 +32,7 @@
     %h2.vital_comment コメント一覧
     %ul.timeline
       = render 'comments/index', vital: @vital
-  %ul
+  %ul.error_comment
     = render 'layouts/error', object: @comment
   = form_with(model: [@vital,@comment],local: false) do |f|
     %div
