@@ -71,4 +71,8 @@ class Vital < ApplicationRecord
   scope :search_information, -> (keyword) { 
     where(day: keyword.in_time_zone.all_day)
   }
+  #Vital１ヶ月検索
+  scope :search_month_information, -> (keyword) { 
+    where(day: keyword.in_time_zone.all_month)
+  }
 end
