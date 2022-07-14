@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   #プロフィール
   resource :profile, only: [:show, :edit, :update] do
     #userのパスワード編集、更新、退会
-    resource :user, only: [:edit, :update, :destroy] 
+    resource :user, except: [:index,:new,:create]
   end
   #既往歴
   resources :medical_histories, except: [:index, :show]

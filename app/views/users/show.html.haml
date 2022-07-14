@@ -1,0 +1,31 @@
+.container
+  = link_to "戻る", profile_path, class: "btn btn-secondary btn-sm"
+  .row
+    .col-5.offset-1.my-2
+      %h5.font-weight-bold 登録情報
+    .col-5.text-right.my-2
+      %p.btn.btn-outline-secondary 編集する
+    .col-10.offset-1.mb-4
+      %table.table.table-bordered.bg-white
+        %tr
+          %th.table-active.align-middle.text-center{:scope => "row"} 氏名
+          %td= @user.name
+        %tr
+          %th.table-active.text-center{:scope => "row"} メールアドレス
+          %td= @user.email
+      .d-flex.justify-content-end
+        = form_with model: @user, url: profile_user_path, method: :delete, local: true do |f|
+          .btn.btn.btn-danger.btn-sm{"data-target" => "#delete-user-confirm-modal", "data-toggle" => "modal"} 退会する
+          #delete-user-confirm-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "staticBackdropLabel", "data-backdrop" => "static", "data-keyboard" => "false", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  %h5#staticBackdropLabel.modal-title
+                    %label 本当に退会しますか？
+                  %button.close{"aria-label" => "閉じる", "data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                .modal-body
+                  %p.text-center 一度退会するとデータはすべて削除され復旧はできません。
+                .modal-footer
+                  %button.btn.btn-light.btn-sm{"data-dismiss" => "modal", :type => "button"} キャンセル
+                  %button.btn.btn.btn-danger.btn-sm.text-white{:type => "submit"} 退会する

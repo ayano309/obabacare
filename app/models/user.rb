@@ -3,6 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
+#  deleted_flg            :boolean          default(FALSE), not null
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  name                   :string
@@ -69,5 +70,12 @@ class User < ApplicationRecord
     result = update(params, *options)
     clean_up_passwords
     result
+  end
+  
+  #退会機能で使用
+  extend SwitchFlg
+  # deleted_flugがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (deleted_flg == false)
   end
 end
