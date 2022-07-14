@@ -27,7 +27,7 @@ class User < ApplicationRecord
   #排便機能
   has_many :defecations, dependent: :destroy
   has_many :memos, dependent: :destroy
-  has_one :profile, dependent: :destroy
+  has_one :profile, dependent: :destroy,  class_name: 'Profile'
   #既往歴
   has_many :medical_histories, dependent: :destroy
   
@@ -56,5 +56,18 @@ class User < ApplicationRecord
   #プロフィール
   def prepare_profile
     profile || build_profile
+  end
+  
+  
+  #ユーザーから送信されたpasswordが一致するかどうかを確認し、
+  #一致する場合のみパスワードを暗号化してデータベースに保存するメソッド
+  def update_password(params, *options)
+    if params[:password].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation) if params[:password_confirmation].blank?
+    end
+    result = update(params, *options)
+    clean_up_passwords
+    result
   end
 end
