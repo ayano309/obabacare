@@ -4,17 +4,9 @@ class UsersController < ApplicationController
   #ユーザー情報表示
   def show; end
     
-  
-  def edit; end
-  
-  
-  def update; end
-    
-    
   #パスワード編集
   def edit_password; end
     
-  
   #パスワード更新
   def update_password
     if password_set?

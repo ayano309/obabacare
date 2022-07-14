@@ -4,7 +4,7 @@
     .col-5.offset-1.my-2
       %h5.font-weight-bold 登録情報
     .col-5.text-right.my-2
-      %p.btn.btn-outline-secondary 編集する
+      = link_to "編集する", edit_user_registration_path, class: "btn btn-outline-secondary"
     .col-10.offset-1.mb-4
       %table.table.table-bordered.bg-white
         %tr
