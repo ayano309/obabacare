@@ -23,6 +23,7 @@ class Profile < ApplicationRecord
   enum blood_type: { A: 0, B: 1, O: 2, AB: 3 }
   
   
+  
   #年齢
   def age
     return '不明' unless birthday.present?
