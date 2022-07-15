@@ -1,0 +1,28 @@
+.container
+  .emotion
+    .emotion_box
+      .emotion_title
+        今月の
+        %br
+        感情
+      .emotion_detail
+        - @comments.each do|comment|
+          .dropdown
+            .dropbtn
+              = render 'comments/emotion',comment: comment
+            .dropdown-content.mini 
+              = link_to vital_path(comment.vital) do
+                %p.btn.btn-sm.btn-info
+                  = I18n.l(comment.vital.day, format: :default)
+                  の投稿へ
+                %br/
+                %p.emotion-content.m-0 
+                  コメント:
+                  %br
+                  = comment.content
+  .container
+    = month_calendar events: @comments do |date, comments|
+      = date.day
+      %br/
+      - comments.each do |comment|
+        = render 'comments/emotion',comment: comment

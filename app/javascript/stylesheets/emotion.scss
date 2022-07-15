@@ -1,0 +1,63 @@
+@import 'variables';
+
+.emotion{
+  
+  &_box{
+    position: relative;
+    width: 80%;
+    padding: 10px 30px;
+    margin: 20px auto;
+    border: 1px solid $primary-color;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  &_content{
+    font-size: 16px;
+  }
+  @keyframes bgchange{
+    0%   {background:#ffe6e1;}
+    25%  {background:#fdcb9e;}
+    50%  {background:#fdcbc1;}
+    75%  {background:#ffff8c;}
+    90%  {background:#b2dffb;}
+    100% {background:#ffe6e1;}
+  }
+  
+  &_title{
+    font-weight: bold;
+  	position: absolute;
+  	z-index: 1;
+  	top: -20px;
+  	left: -20px;
+  	width: 75px;
+  	height: 75px;
+  	padding: 14.5px 0;
+  	text-align: center;
+  	color: #ffffff;
+  	border-radius: 100%;
+  	opacity: 0.9;
+  	animation: bgchange 20s ease infinite;
+  }
+  
+  &_detail{
+    margin-left: 30px;
+  }
+}
+
+
+
+//カレンダー
+.simple-calendar {
+  .day {
+    font-weight: bold;
+  }
+
+  .today{
+    border: 2px solid $primary-color;
+  }
+  
+  .calendar-heading{
+    font-size: 30px;
+  }
+}

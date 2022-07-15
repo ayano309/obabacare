@@ -35,9 +35,7 @@
   %ul.error_comment
     = render 'layouts/error', object: @comment
   = form_with(model: [@vital,@comment],local: false) do |f|
-    %div
-      = f.label :content, 'コメント内容'
-    %div.mt-3
+    %div.mt-5
       = f.label :is_important, '●重要ですか'
     %div
       = f.radio_button :is_important, :true
@@ -47,7 +45,9 @@
     %div
       = f.select :emotion, Comment.emotions_i18n.invert, {include_blank: "感情を選択してください"}, {class: "text", required: true}
     %div
+      = f.label :content, '●コメント内容'
+    %div
       = f.text_field :content, class: 'text', placeholder: "#{I18n.l(@vital.day, format: :default)} のコメント入力"
-    = f.submit '保存', class: 'btn-log'
+    = f.submit '保存', class: 'btn-log mb-3'
     
     
