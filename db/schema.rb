@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_14_114103) do
+ActiveRecord::Schema.define(version: 2022_07_15_062755) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 2022_07_14_114103) do
     t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "is_important", null: false
+    t.integer "emotion", null: false
     t.index ["vital_id"], name: "index_comments_on_vital_id"
   end
 

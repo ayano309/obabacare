@@ -2,11 +2,13 @@
 #
 # Table name: comments
 #
-#  id         :integer          not null, primary key
-#  content    :text             not null
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  vital_id   :integer          not null
+#  id           :integer          not null, primary key
+#  content      :text             not null
+#  emotion      :integer          not null
+#  is_important :boolean          not null
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  vital_id     :integer          not null
 #
 # Indexes
 #
