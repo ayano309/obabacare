@@ -66,5 +66,7 @@ gem 'annotate'
 gem 'devise'
 gem 'hamlit'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem 'enum_help'gem 'kaminari'
+gem 'enum_help'
+gem 'kaminari'
+gem 'simple_calendar'
 
