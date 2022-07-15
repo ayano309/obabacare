@@ -22,6 +22,11 @@ class Comment < ApplicationRecord
   validates :is_important, inclusion: {in: [true, false]}
   validates :emotion, presence: true
   
+  #感情記録
+  #expressionless= 無表情
+  enum emotion: { happy: 0, anger: 1, sad: 2, fun:3, expressionless: 4, other: 5}
+  
+  
   def comment_created_at
     I18n.l(self.created_at, format: :time)
   end
