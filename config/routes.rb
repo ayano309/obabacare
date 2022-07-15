@@ -35,6 +35,9 @@ Rails.application.routes.draw do
     resource :defecations, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+  
+  #感情記録
+  resources :emotions, only: [:index]
 
   resources :vital_months, only: [:index]
   resources :memos, except: [:show]
