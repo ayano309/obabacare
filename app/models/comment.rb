@@ -38,4 +38,11 @@ class Comment < ApplicationRecord
   def comment_created_at
     I18n.l(self.created_at, format: :time)
   end
+  
+  
+  #感情記録カレンダー
+  def start_time
+    vital.day
+  end
+
 end
