@@ -49,8 +49,8 @@
   }
 
   &_detail {
-    width: 60%;
-  	font-size: 0.7em;
+    width: 80%;
+  	font-size: 16px;
   	font-weight: bold;
   	line-height: 1.5em;
   	margin: 1em auto ;
@@ -61,4 +61,11 @@
   	z-index: 15;
   }
 
+}
+
+@media screen and (max-width: 480px) {
+	.timeline_detail {
+    height: 200px;
+    overflow: scroll;
+  }
 }

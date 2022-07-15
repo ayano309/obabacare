@@ -8,15 +8,14 @@ module VitalHelper
     end
   end
 
-
   def check_high_bp(vital)
-    if (vital.high_bp >= 140) 
+    if (vital.high_bp >= 140)
       return 'red'
-    elsif (vital.high_bp <= 100) 
+    elsif (vital.high_bp <= 100)
       return 'blue'
     end
   end
-  
+
   def check_low_bp(vital)
     if (vital.low_bp >= 90)
       return 'red'
@@ -24,7 +23,7 @@ module VitalHelper
       return 'blue'
     end
   end
-  
+
   def check_pulse(vital)
     if (vital.pulse >= 100)
       return 'red'
@@ -32,7 +31,7 @@ module VitalHelper
       return 'blue'
     end
   end
-  
+
   def check_breathing(vital)
     if (vital.breathing > 28)
       return 'red'
@@ -40,7 +39,7 @@ module VitalHelper
       return 'blue'
     end
   end
-  
+
   def check_oxygen_saturation(vital)
     if (vital.oxygen_saturation > 99)
       return 'red'
@@ -48,15 +47,12 @@ module VitalHelper
       return 'blue'
     end
   end
-  
+
   def moisture_supply_check(vital)
     if vital.moisture_supply >= 2000
-      return '飲み過ぎです'
+      return '飲み過ぎです' 
     elsif vital.moisture_supply <= 1000
       return 'もっと飲んでください'
     end
   end
 end
-
-
-  

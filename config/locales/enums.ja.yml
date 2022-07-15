@@ -15,3 +15,11 @@ ja:
         B: 'B型'
         O: 'O型'
         AB: 'AB型'
+    comment:
+      emotion: 
+        happy: '喜'
+        anger: '怒'
+        sad: '哀'
+        fun: '楽'
+        expressionless: '無表情'
+        other: 'その他'

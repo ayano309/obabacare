@@ -21,7 +21,6 @@ class Memo < ApplicationRecord
   validates :title , presence: true
   validates :content , presence: true
 
-
   enum category: {
     advice: 0,
     medicine: 1,
@@ -39,9 +38,9 @@ class Memo < ApplicationRecord
 
   #カテゴリー検索
   scope :seach_category, -> (name){where(category: name)}
-  
+
   #メモ検索
-  scope :search_information, -> (keyword) { 
-    where("title LIKE :keyword OR content LIKE :keyword ", keyword: "%#{keyword}%")
+  scope :search_information, -> (keyword) {
+    where('title LIKE :keyword OR content LIKE :keyword ', keyword: "%#{keyword}%")
   }
 end

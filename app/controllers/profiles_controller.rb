@@ -10,11 +10,11 @@ class ProfilesController < ApplicationController
   def edit
     @profile = current_user.prepare_profile
   end
-  
+
   def update
     @profile = current_user.prepare_profile
     @profile.assign_attributes(profile_params)
-    
+
     if @profile.save
       redirect_to profile_path, notice: 'プロフィール更新しました'
     else
@@ -30,7 +30,7 @@ class ProfilesController < ApplicationController
       :important_term,
       :gender,
       :birthday,
-      :weight 
+      :weight
     )
   end
 end

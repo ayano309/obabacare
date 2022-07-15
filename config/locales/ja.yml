@@ -18,6 +18,8 @@ ja:
         moisture_supply: "水分量"
       comment:
         content: '内容'
+        is_important: '重要か'
+        emotion: '感情'
       memo:
         title: 'タイトル'
         content: '内容'

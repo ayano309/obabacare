@@ -10,7 +10,7 @@ class MemosController < ApplicationController
       @keyword = params[:keyword].strip
       @memos = Memo.search_information(@keyword).on_memos(@user, params[:page])
     else
-      @keyword = ""
+      @keyword = ''
       @memos = Memo.preload({image_attachment: :blob}).on_memos(@user, params[:page])
     end
   end

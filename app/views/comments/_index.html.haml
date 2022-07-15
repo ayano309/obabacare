@@ -6,4 +6,7 @@
       .timeline_detail
         = comment.content
         %br
-        = link_to '削除' ,vital_comment_path(comment.vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' },remote: true
+        .d-flex.justify-content-center
+          = render 'comments/emotion', comment: comment
+          = link_to '削除' ,vital_comment_path(comment.vital, comment), data: { method: 'delete',confirm:'本当に削除してもよろしいですか？' },remote: true,
+          class: "ml-3"

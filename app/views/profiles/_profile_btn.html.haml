@@ -2,31 +2,37 @@
   = link_to  new_medical_history_path do
     .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
-        既往歴
+        %i.fas.fa-briefcase-medical
       %p.new
-        登録する
+        既往歴
   = link_to  vitals_path do
     .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
-        バイタル
+        %i.fas.fa-heartbeat
       %p.new
-        確認する
+        Vital一覧
   = link_to memos_path do
     .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
-        メモ
+        %i.fas.fa-book-open
       %p.new
-        確認する
+        メモ一覧
+  = link_to memos_path do
+    .profilePage_user_have_item.btn.btn-outline-secondary
+      %p.title
+        %i.fas.fa-smile-beam
+      %p.new
+        感情日記
   = link_to  profile_user_path do
     .profilePage_user_have_item.btn.btn-outline-secondary
       %p.title
-        登録情報
+        %i.fas.fa-user
       %p.new
-        確認する
+        登録情報
   -if current_user.name != "guestuser" 
     = link_to edit_profile_user_path do
       .profilePage_user_have_item.btn.btn-outline-secondary
         %p.title
-          パスワード
+          %i.fas.fa-key
         %p.new
-          変更する
+          パスワード

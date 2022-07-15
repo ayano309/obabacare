@@ -1,0 +1,78 @@
+@import 'variables';
+
+.emotion{
+  
+  &_box{
+    position: relative;
+    width: 80%;
+    padding: 10px 30px;
+    margin: 20px auto;
+    border: 1px solid #b1ce4e;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  &_content{
+    font-size: 16px;
+  }
+  
+  
+  &_title{
+    font-weight: bold;
+  	position: absolute;
+  	z-index: 1;
+  	top: -20px;
+  	left: -20px;
+  	width: 75px;
+  	height: 75px;
+  	padding: 14.5px 0;
+  	text-align: center;
+  	color: #ffffff;
+  	border-radius: 100%;
+  	opacity: 0.9;
+  	background-color: #b1ce4e;
+  	
+  }
+  
+  &_detail{
+    margin-left: 30px;
+  }
+}
+
+//感情機能
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.bg-pink{
+  background: #ef8bad;
+}
+.bg-red{
+  background: red;
+}
+.bg-blue{
+  background: blue;
+}
+.bg-orange{
+  background: orange;
+}
+.bg-gray{
+  background: gray;
+}
+
+//カレンダー
+.simple-calendar {
+  .day {
+    font-weight: bold;
+  }
+
+  .today{
+    border: 2px solid #b1ce4e;
+  }
+  
+  .calendar-heading{
+    font-size: 30px;
+  }
+}

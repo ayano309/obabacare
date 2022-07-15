@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   }
 
   devise_scope :admin do
-    get "dashboard", to: "dashboard#index"
-    get "dashboard/login", to: "admins/sessions#new"
-    post "dashboard/login", to: "admins/sessions#create"
-    delete "dashboard/logout", to: "admins/sessions#destroy"
+    get 'dashboard', to: 'dashboard#index'
+    get 'dashboard/login', to: 'admins/sessions#new'
+    post 'dashboard/login', to: 'admins/sessions#create'
+    delete 'dashboard/logout', to: 'admins/sessions#destroy'
     post 'dashboard/guest_sign_in', to: 'admins/sessions#guest_sign_in'
   end
-  
+
   namespace :dashboard do
     resources :users, only: [:index, :destroy]
   end
@@ -29,17 +29,19 @@ Rails.application.routes.draw do
   root to: 'homes#index'
   get 'terms', to: 'homes#terms'
   get 'privacy', to: 'homes#privacy'
-  
+
   resources :vitals do
     #排便機能
     resource :defecations, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
   end
+  
+  #感情記録
+  resources :emotions, only: [:index]
 
   resources :vital_months, only: [:index]
   resources :memos, except: [:show]
-  
-  
+
   #プロフィール
   resource :profile, only: [:show, :edit, :update] do
     #userのパスワード編集、更新、退会

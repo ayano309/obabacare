@@ -7,7 +7,7 @@ class VitalsController < ApplicationController
       @keyword = params[:keyword].strip
       @vitals = Vital.search_information(@keyword).on_vitals(@user, params[:page])
     else
-      @keyword = ""
+      @keyword = ''
       @vitals = Vital.on_vitals(@user, params[:page])
     end
   end
