@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2022_07_15_062755) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "is_important", null: false
     t.integer "emotion", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_comments_on_user_id"
     t.index ["vital_id"], name: "index_comments_on_vital_id"
   end
 
@@ -135,4 +137,5 @@ ActiveRecord::Schema.define(version: 2022_07_15_062755) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "comments", "users"
 end
