@@ -62,3 +62,10 @@
   }
 
 }
+
+@media screen and (max-width: 480px) {
+	.timeline_detail {
+    height: 200px;
+    overflow: scroll;
+  }
+}

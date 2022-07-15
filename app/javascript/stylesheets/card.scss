@@ -29,6 +29,8 @@ $feces-size: 30px;
   &_comment_detail {
     border: 3px solid $primary-color;
     padding: 10px;
+    height: 100px;
+    overflow: scroll;
   }
 
   &_feces {

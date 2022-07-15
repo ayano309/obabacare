@@ -1,15 +1,15 @@
 module EmotionHelper
   def add_color_class(emotion)
     if emotion == "happy"
-      return 'pink'
+      return 'bg-pink'
     elsif emotion == "anger"
-      return 'red'
+      return 'bg-red'
     elsif emotion == "sad"
-      return 'blue'
+      return 'bg-blue'
     elsif emotion == "fun"
-      return 'orange'
+      return 'bg-orange'
     elsif emotion == "expressionless"
-      return 'gray'
+      return 'bg-gray'
     end
   end
 end
