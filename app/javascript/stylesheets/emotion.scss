@@ -15,14 +15,7 @@
   &_content{
     font-size: 16px;
   }
-  @keyframes bgchange{
-    0%   {background:#ffe6e1;}
-    25%  {background:#fdcb9e;}
-    50%  {background:#fdcbc1;}
-    75%  {background:#ffff8c;}
-    90%  {background:#b2dffb;}
-    100% {background:#ffe6e1;}
-  }
+  
   
   &_title{
     font-weight: bold;
@@ -36,8 +29,8 @@
   	text-align: center;
   	color: #ffffff;
   	border-radius: 100%;
-  	opacity: 0.9;
-  	animation: bgchange 20s ease infinite;
+  	background-color: $primary-color;
+  	
   }
   
   &_detail{
@@ -45,7 +38,28 @@
   }
 }
 
+//感情機能
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
 
+.pink{
+  background: #ef8bad;
+}
+.red{
+  background: red;
+}
+.blue{
+  background: blue;
+}
+.orange{
+  background: orange;
+}
+.gray{
+  background: gray;
+}
 
 //カレンダー
 .simple-calendar {

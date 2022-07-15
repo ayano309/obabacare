@@ -44,5 +44,5 @@ class Comment < ApplicationRecord
   def start_time
     vital.day
   end
-
+  scope :comment_month, ->{ where(created_at: Time.zone.today.all_month) }
 end

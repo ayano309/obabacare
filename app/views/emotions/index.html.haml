@@ -6,17 +6,27 @@
         %br
         感情
       .emotion_detail
-        - @comments.each do|comment|
+        - @comments.comment_month.each do|comment|
           .dropdown
             .dropbtn
-              = render 'comments/emotion',comment: comment
+              .icon
+                - if comment.emotion == "happy"
+                  %i.far.fa-smile-beam.fa-2x{:style => "color: #ef8bad;"}
+                - elsif comment.emotion == "anger"
+                  %i.far.fa-angry.fa-2x{:style => "color: red;"}
+                - elsif comment.emotion == "sad"
+                  %i.far.fa-tired.fa-2x{:style => "color:blue;"}
+                - elsif comment.emotion == "fun"
+                  %i.far.fa-laugh-squint.fa-2x{:style => "color:orange;"}
+                - elsif comment.emotion == "expressionless"
+                  %i.far.fa-meh.fa-2x{:style => "color:gray;"}
             .dropdown-content.mini 
               = link_to vital_path(comment.vital) do
                 %p.btn.btn-sm.btn-info
                   = I18n.l(comment.vital.day, format: :default)
                   の投稿へ
                 %br/
-                %p.emotion-content.m-0 
+                %p.emotion-content
                   コメント:
                   %br
                   = comment.content
@@ -24,5 +34,7 @@
     = month_calendar events: @comments do |date, comments|
       = date.day
       %br/
-      - comments.each do |comment|
-        = render 'comments/emotion',comment: comment
+      .d-flex.flex-wrap
+        - comments.each do |comment|
+          = link_to vital_path(comment.vital) do
+            %p{:class => "circle #{add_color_class(comment.emotion)}"}
