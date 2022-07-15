@@ -42,9 +42,13 @@
       = f.label :is_important, 'はい'
       = f.radio_button :is_important, :false, checked: true
       = f.label :is_important, 'いいえ' 
+    %div.mt-3
+      = f.label :emotion, '●その時の感情を登録してください'
     %div
-      = f.select :emotion, Comment.emotions_i18n.invert, {include_blank: "感情を選択してください"}, {class: "text", required: true}
-    %div
+      = f.collection_radio_buttons :emotion, Comment.emotions_i18n, :first , :last do |b|
+        = b.label(class: "radio_button") { b.radio_button(class: "radio_button") + b.text }
+      %br/
+    %div.mt-3
       = f.label :content, '●コメント内容'
     %div
       = f.text_field :content, class: 'text', placeholder: "#{I18n.l(@vital.day, format: :default)} のコメント入力"
