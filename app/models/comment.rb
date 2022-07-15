@@ -45,4 +45,7 @@ class Comment < ApplicationRecord
     vital.day
   end
   scope :comment_month, ->{ where(created_at: Time.zone.today.all_month) }
+  
+  
+  scope :important_comment, ->{ where(is_important: true) }
 end
