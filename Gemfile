@@ -49,8 +49,8 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'pry-byebug'
-  gem 'spring'
   gem 'erb2haml'
+  gem 'spring'
 end
 
 group :test do
@@ -64,7 +64,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'annotate'
 gem 'devise'
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'hamlit'
-gem 'kaminari'
-gem 'enum_help'
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'enum_help'gem 'kaminari'
+

@@ -17,14 +17,14 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-  
+
   #ゲストログイン
   def guest_sign_in
     user = User.guest
     sign_in user
     redirect_to vitals_path, notice: 'guestuserでログインしました。'
   end
-  
+
   #サインイン後にどこに遷移するか
   def after_sign_in_path_for(resource)
     vitals_path
@@ -34,9 +34,8 @@ class Users::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
     root_path
   end
-  
+
   protected
- 
 
   def reject_user
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
@@ -45,7 +44,7 @@ class Users::SessionsController < Devise::SessionsController
     return if !@user
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false)
-      flash[:alert] = "退会済みです。再度ご登録をしてご利用ください。"
+      flash[:alert] = '退会済みです。再度ご登録をしてご利用ください。'
       redirect_to new_user_registration_path
     end
   end

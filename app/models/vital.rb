@@ -37,27 +37,27 @@ class Vital < ApplicationRecord
   def vital_created_at
     I18n.l(self.day, format: :short)
   end
-  
+
   #水分
   def moisture_quantity
    (self.moisture_supply/200).floor
   end
-  
+
   #ページネーション
   extend PageList
   #誰の投稿か
   include IsWhoPosts
-  
+
   #並び順
   scope :vitals_order, -> (order){ order(order) }
-  
+
   #vitalの降順でページネーション
   scope :on_vitals, -> (user,page) {
     by_user(user).
     vitals_order(day: :desc).
     display_list(page)
   }
-  
+
   #orderをまとめる方法は？#コントローラーから:descをどう渡すか
   #１ヶ月分のvital情報
   scope :on_month, ->{ where(day: Time.zone.today.all_month) }
@@ -66,13 +66,13 @@ class Vital < ApplicationRecord
     on_month.
     vitals_order(day: :asc)
   }
-  
+
   #検索
-  scope :search_information, -> (keyword) { 
+  scope :search_information, -> (keyword) {
     where(day: keyword.in_time_zone.all_day)
   }
   #Vital１ヶ月検索
-  scope :search_month_information, -> (keyword) { 
+  scope :search_month_information, -> (keyword) {
     where(day: keyword.in_time_zone.all_month)
   }
 end

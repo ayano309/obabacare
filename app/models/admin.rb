@@ -22,7 +22,7 @@ class Admin < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   # deviseのログイン機能とバリデーション機能だけが有効
   devise :database_authenticatable, :rememberable, :validatable
-  
+
   def self.guest
     find_or_create_by!(name: 'guestadmin', email: 'admin-guest@example.com') do |admin|
       admin.password = SecureRandom.urlsafe_base64

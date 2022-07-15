@@ -37,7 +37,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-   
+
   #サインイン後にどこに遷移するか
   def after_sign_in_path_for(resource)
     vitals_path
@@ -48,14 +48,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     root_path
   end
 
- 
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name,:email,:password,:password_confirmation])
   end
-  
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
@@ -72,8 +70,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
   def ensure_guest_user
-    if current_user.name == "guestuser"
+    if current_user.name == 'guestuser'
       redirect_to root_path, notice: 'ゲストユーザーは編集画面へ遷移できません。'
     end
-  end  
+  end
 end

@@ -16,16 +16,16 @@
 #
 class MedicalHistory < ApplicationRecord
   belongs_to :user
-  
+
   validates :disease_name , presence: true
-  
+
   validates :when_onset , presence: true
-  
+
   validates :in_treatment, inclusion: {in: [true, false]}
   #発症時期
   def disease_when_onset
     I18n.l(self.when_onset, format: :default)
   end
-  
+
   scope :is_during_treatment, -> (value){ where(in_treatment: value).order(when_onset: :asc) }
 end

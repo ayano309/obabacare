@@ -31,35 +31,33 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy,  class_name: 'Profile'
   #既往歴
   has_many :medical_histories, dependent: :destroy
-  
+
   EMAIL_REGEX =  /\A\S+@\S+\.\S+\z/.freeze
 
   validates :name, presence: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: { case_sensitive: true },
   format: { with: EMAIL_REGEX, message: 'は正しいメールアドレスを入力してください' }, length: { maximum: 256 }
 
-
   delegate :birthday,:weight,:age,:gender, to: :profile, allow_nil: true
-  
+
   #排便記録
   def defecation_by?(vital)
     defecations.exists?(vital_id: vital.id)
   end
-  
+
   #ゲストログイン
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
+      user.name = 'guestuser'
     end
   end
-  
+
   #プロフィール
   def prepare_profile
     profile || build_profile
   end
-  
-  
+
   #ユーザーから送信されたpasswordが一致するかどうかを確認し、
   #一致する場合のみパスワードを暗号化してデータベースに保存するメソッド
   def update_password(params, *options)
@@ -71,19 +69,19 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
-  
+
    #ページネーション
   extend PageList
-  
+
   #退会機能で使用
   extend SwitchFlg
   # deleted_flugがfalseならtrueを返すようにしている
   def active_for_authentication?
     super && (deleted_flg == false)
   end
-  
+
   #管理者側でユーザー検索
-  scope :search_information, -> (keyword) { 
-    where("name LIKE :keyword OR id LIKE :keyword OR email LIKE :keyword", keyword: "%#{keyword}%")
+  scope :search_information, -> (keyword) {
+    where('name LIKE :keyword OR id LIKE :keyword OR email LIKE :keyword', keyword: "%#{keyword}%")
   }
 end

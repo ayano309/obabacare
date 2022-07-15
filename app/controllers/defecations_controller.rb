@@ -4,7 +4,7 @@ class DefecationsController < ApplicationController
   def create
     @vital = Vital.find(params[:vital_id])
     @vital.defecations.create!(user_id: current_user.id)
-    
+
   end
 
   def destroy
@@ -12,6 +12,6 @@ class DefecationsController < ApplicationController
     defecation = @vital.defecations.find_by!(user_id: current_user.id)
 
     defecation.destroy!
-    
+
   end
 end
