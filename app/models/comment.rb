@@ -18,7 +18,10 @@ class Comment < ApplicationRecord
   belongs_to :vital
 
   validates :content, presence: true
-
+  
+  validates :is_important, inclusion: {in: [true, false]}
+  validates :emotion, presence: true
+  
   def comment_created_at
     I18n.l(self.created_at, format: :time)
   end
