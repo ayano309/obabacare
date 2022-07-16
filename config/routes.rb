@@ -33,8 +33,9 @@ Rails.application.routes.draw do
   resources :vitals do
     #排便機能
     resource :defecations, only: [:create, :destroy]
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :update]
   end
+  resources :comment_importants, only: [:index]
   
   #感情記録
   resources :emotions, only: [:index]

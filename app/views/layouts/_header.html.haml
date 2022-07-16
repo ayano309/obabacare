@@ -2,8 +2,11 @@
   .header_logos
     %p.header_pageTitle
       - if user_signed_in?
-        = link_to  vitals_path do
-          = image_tag "obaba-logo.png", size: "250x250"
+        .header_login
+          = link_to  vitals_path do
+            = image_tag "obaba-logo.png", size: "250x250"
+          %br
+          =link_to '今月の重要コメント', comment_importants_path, class: "header_loginBtn"
       - else
         = link_to  root_path do
           = image_tag "obaba-logo.png", size: "250x250"

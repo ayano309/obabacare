@@ -1,9 +1,17 @@
 .tabs
   .tabs_item{class: "#{add_active_class(vitals_path)}"}
-    = link_to '一覧' ,vitals_path
+    = link_to  vitals_path do
+      %i.fas.fa-heartbeat
+      一覧
   .tabs_item{class: "#{add_active_class(vital_months_path)}"}
-    = link_to '1ヶ月間' ,vital_months_path
+    = link_to vital_months_path do
+      %i.fas.fa-heartbeat
+      1ヶ月間
   .tabs_item{class: "#{add_active_class(memos_path)}"}
-    = link_to 'メモ' ,memos_path
+    = link_to memos_path do
+      %i.fas.fa-book-open
+      メモ
   .tabs_item{class: "#{add_active_class(emotions_path)}"}
-    = link_to '感情日記' ,emotions_path
+    = link_to emotions_path do
+      %i.fas.fa-smile-beam
+      感情日記
