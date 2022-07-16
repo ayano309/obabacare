@@ -46,6 +46,10 @@ class Comment < ApplicationRecord
   end
   scope :comment_month, ->{ where(created_at: Time.zone.today.all_month) }
   
+  
+  #重要コメントのステータス
+  extend SwitchFlg
+  
   #重要コメント一覧
   scope :important_comment, ->{ where(is_important: true) }
 end
