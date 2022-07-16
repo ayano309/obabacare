@@ -134,3 +134,42 @@ $feces-size: 30px;
     }
 	}
 }
+
+//重要
+.card_important{
+  width: 80%;
+  padding: 10% 5% 0%;
+  margin: 20px auto;
+  font-weight: bold;
+  
+  &_vitalday{
+    font-weight: bold;
+  	position: absolute;
+  	z-index: 1;
+  	top: -10px;
+  	left: -10px;
+  	width: 75px;
+  	height: 75px;
+  	padding: 14.5px 0;
+  	text-align: center;
+  	color: #ffffff;
+  	border-radius: 100%;
+  	background-color: $primary-color;
+  }
+  &_comment{
+    width: 90%;
+    height: 100px;
+    margin: 0 auto;
+    overflow: scroll;
+  }
+}
+
+@media screen and (max-width: 480px) {
+	.card_important {
+    padding: 15% 5% 0%;
+    
+    &_comment{
+      height: 200px;
+    }
+  }
+}
