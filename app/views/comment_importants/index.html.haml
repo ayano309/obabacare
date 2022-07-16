@@ -1,0 +1,7 @@
+.container
+  - @vitals.each do |vital|
+    %br
+    - vital.comments.important_comment.each do |comment|
+      = comment.vital.day
+      = comment.content
+    
