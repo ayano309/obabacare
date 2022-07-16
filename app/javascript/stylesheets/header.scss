@@ -34,7 +34,12 @@ $header-padding-y: 16px;
     line-height: $logo-size;
     font-size: $font-lg;
   }
-
+  
+  &_login{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 }
 
 
