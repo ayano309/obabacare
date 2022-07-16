@@ -1,8 +1,9 @@
 .container
+  = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
   - @vitals.each do |vital|
     - vital.comments.important_comment.each do |comment|
       .card.card_important
         .card_important_vitalday
           = comment.vital.vital_created_at
-        .card_important_comment 
+        .card_important_comment
           = comment.content
