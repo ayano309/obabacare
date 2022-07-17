@@ -1,0 +1,42 @@
+.container
+  %h1.text-center.my-5 お問い合わせ内容確認
+  .row
+    .col-12.col-md-8.offset-md-2.p-3.mb-4
+      %table.table.table-bordered.bg-white
+        %tr
+          %th.table-active.text-center.align-middle{:scope => "row"} お名前
+          %td
+            = @contact.name
+            様
+        %tr
+          %th.table-active.text-center.align-middle{:scope => "row"} メールアドレス
+          %td= @contact.email
+        %tr
+          %th.table-active.text-center.align-middle{:scope => "row"} 電話番号
+          %td= @contact.phone
+        %tr
+          %th.table-active.text-center.align-middle{:scope => "row"} お問い合わせ項目
+          %td= @contact.category_i18n
+        %tr
+          %th.table-active.text-center.align-middle{:scope => "row"} 内容
+          %td= simple_format @contact.message
+      //お問い合わせ確認
+      = form_with model: @contact,url: contacts_path, local: true do |f|
+        = f.hidden_field :name
+        = f.hidden_field :email
+        = f.hidden_field :phone
+        = f.hidden_field :category
+        = f.hidden_field :message
+        .actions.text-center.mb-3
+          = f.submit "送信する", class: "btn btn-log"
+      //戻る
+      = form_with model: @contact, method: :post, url: contacts_back_path, local: true do |f|
+        = f.hidden_field :name
+        = f.hidden_field :email
+        = f.hidden_field :phone
+        = f.hidden_field :category
+        = f.hidden_field :message
+        .actions.text-center.mb-3
+          = f.submit "入力画面に戻る", class: "btn btn-secondary w-100"
+    .col-12.text-center.mb-5
+      = link_to "TOPに戻る", root_path

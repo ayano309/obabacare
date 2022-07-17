@@ -52,5 +52,7 @@ Rails.application.routes.draw do
   resources :medical_histories, except: [:index, :show]
   #お問い合わせ
   resources :contacts, only: [:index,:create]
+  post 'contacts/confirm'
+  post 'contacts/back'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

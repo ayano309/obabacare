@@ -1,4 +1,4 @@
-= form_with model: @contact, url: contacts_path, local: true do |f|
+= form_with model: @contact, url: contacts_confirm_path, method: :post, local: true do |f|
   %div
     .text-left.mb-1
       = f.label :name
