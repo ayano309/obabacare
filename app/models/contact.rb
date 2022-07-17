@@ -34,11 +34,11 @@ class Contact < ApplicationRecord
   #ページネーション
   extend PageList
   
-  scope :contacts_order, -> (order){ order(order) }
-
+  include SetOrder
+  
   #vitalの降順でページネーション
   scope :on_contacts, -> (page) {
-    contacts_order(created_at: :desc).
+    set_order(created_at: :desc).
     display_list(page)
   }
 end
