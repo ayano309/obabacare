@@ -31,4 +31,14 @@ class Contact < ApplicationRecord
     unsupported: 0,
     closed: 1
   }
+  #ページネーション
+  extend PageList
+  
+  scope :contacts_order, -> (order){ order(order) }
+
+  #vitalの降順でページネーション
+  scope :on_contacts, -> (page) {
+    contacts_order(created_at: :desc).
+    display_list(page)
+  }
 end

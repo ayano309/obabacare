@@ -14,3 +14,5 @@
                 %th.text-nowrap{:scope => "col"} ステータス
                 %th.text-nowrap{:scope => "col"}
             %tbody= render @contacts
+  .row.justify-content-center
+    = paginate @contacts

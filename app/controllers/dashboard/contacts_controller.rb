@@ -3,7 +3,7 @@ class Dashboard::ContactsController < ApplicationController
   before_action :set_contact, only: %w[show update destroy]
   layout 'dashboard/dashboard'
   def index
-    @contacts = Contact.all.order(created_at: 'desc')
+    @contacts = Contact.on_contacts(params[:page])
   end
 
   def show; end
