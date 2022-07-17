@@ -1,0 +1,40 @@
+@import 'variables';
+.carriergiver{
+  display: flex;
+  
+  &_message{
+    position: relative;
+    display: inline-block;
+    margin: 1.5em 0 1.5em 15px;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #fff;
+    font-size: 16px;
+    background: $primary-color;
+    border-radius: 10px;
+    font-weight: bold;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -30px;
+      margin-top: -15px;
+      border: 15px solid transparent;
+      border-right: 15px solid $primary-color;
+    }
+    
+    p{
+      margin: 0;
+      padding: 0;
+    }
+  
+  }
+}
+
+@media screen and (max-width: 480px) {
+	.carriergiver_support{
+	  display: none;
+	}
+}
