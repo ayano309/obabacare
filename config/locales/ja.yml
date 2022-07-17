@@ -33,6 +33,12 @@ ja:
         disease_name: 'これまでにかかったことのある病気名'
         in_treatment: '治療中ですか'
         when_onset: 'いつ頃ですか'
+      contact:
+        name: 'お名前'
+        email: 'メールアドレス'
+        phone: 'お電話番号'　
+        message: 'お問い合わせ内容'
+        category: 'お問い合わせ項目'
   date:
     abbr_day_names:
     - 日

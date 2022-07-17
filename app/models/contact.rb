@@ -19,4 +19,16 @@ class Contact < ApplicationRecord
   validates :message, presence: true
   validates :category, presence: true
   validates :status, presence: true
+  
+  #サイトについて、要望、その他
+  enum category: {
+    site: 0,
+    demand: 1,
+    others: 2
+  }
+
+  enum status: {
+    unsupported: 0,
+    closed: 1
+  }
 end
