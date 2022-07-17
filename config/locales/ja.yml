@@ -36,9 +36,10 @@ ja:
       contact:
         name: 'お名前'
         email: 'メールアドレス'
-        phone: 'お電話番号'　
+        phone: '電話番号'
         message: 'お問い合わせ内容'
         category: 'お問い合わせ項目'
+        status: 'ステータス'
   date:
     abbr_day_names:
     - 日
