@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :users, only: [:index, :destroy]
-    resources :contacts, only: [:index, :show]
+    resources :contacts, only: [:index, :show, :update]
   end
 
   #ユーザー関連

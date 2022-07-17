@@ -1,0 +1,9 @@
+.row
+  .col-12.mb-3
+    = form_with model:@contact, url: dashboard_contact_path(@contact), local: true  do |f|
+      .row
+        .form-inline.align-items-right.mx-auto
+          .col-auto
+            = f.select :status, Contact.statuses_i18n.invert, {}, {class: "form-control", required: true}
+          .col-auto
+            = f.submit "更新",  class: "btn btn-secondary btn-sm"
