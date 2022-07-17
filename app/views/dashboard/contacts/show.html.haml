@@ -31,4 +31,5 @@
         %tr
           %th.text-nowrap{:scope => "row"} 内容
           %td= simple_format @contact.message
-      
+      = link_to '削除', dashboard_contact_path(@contact), method: :delete, data: { confirm: '本当に削除してもよろしいですか'}, 
+      class: 'btn btn-danger btn-sm'
