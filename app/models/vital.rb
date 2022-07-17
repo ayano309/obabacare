@@ -49,22 +49,21 @@ class Vital < ApplicationRecord
   include IsWhoPosts
 
   #並び順
-  scope :vitals_order, -> (order){ order(order) }
+  include SetOrder
 
   #vitalの降順でページネーション
   scope :on_vitals, -> (user,page) {
     by_user(user).
-    vitals_order(day: :desc).
+    set_order(day: :desc).
     display_list(page)
   }
 
-  #orderをまとめる方法は？#コントローラーから:descをどう渡すか
   #１ヶ月分のvital情報
   scope :on_month, ->{ where(day: Time.zone.today.all_month) }
   scope :vitals_month, -> (user) {
     by_user(user).
     on_month.
-    vitals_order(day: :asc)
+    set_order(day: :asc)
   }
 
   #検索
@@ -73,6 +72,6 @@ class Vital < ApplicationRecord
   }
   #Vital１ヶ月検索
   scope :search_month_information, -> (keyword) {
-    where(day: keyword.in_time_zone.all_month)
+    where(day: keyword.in_time_zone.all_month).set_order(day: :asc)
   }
 end

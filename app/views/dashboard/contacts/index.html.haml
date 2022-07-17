@@ -1,7 +1,7 @@
-.container
+.container.p-3.p-md-4.p-lg-5
   .my-3
     %h5.font-weight-bold
-      新着お問い合わせ
+      お問い合わせ
   .card
     .row
       .col-12
@@ -10,7 +10,9 @@
             %thead
               %tr
                 %th.text-nowrap{:scope => "col"} 問い合わせ日時
-                %th.text-nowrap{:scope => "col"} 種類
+                %th.text-nowrap{:scope => "col"} 項目
                 %th.text-nowrap{:scope => "col"} ステータス
                 %th.text-nowrap{:scope => "col"}
-            %tbody= render 'dashboard/contacts/contact', contacts: @contacts
+            %tbody= render 'contact',contacts: @contacts 
+  .row.justify-content-center
+    = paginate @contacts

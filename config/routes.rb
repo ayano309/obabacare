@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :users, only: [:index, :destroy]
+    resources :contacts, only: [:index, :show, :update, :destroy]
   end
 
   #ユーザー関連
@@ -36,7 +37,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :update]
   end
   resources :comment_importants, only: [:index]
-  
+
   #感情記録
   resources :emotions, only: [:index]
 
@@ -50,5 +51,9 @@ Rails.application.routes.draw do
   end
   #既往歴
   resources :medical_histories, except: [:index, :show]
+  #お問い合わせ
+  resources :contacts, only: [:index,:create]
+  post 'contacts/confirm'
+  post 'contacts/back'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

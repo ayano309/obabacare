@@ -50,7 +50,7 @@ module VitalHelper
 
   def moisture_supply_check(vital)
     if vital.moisture_supply >= 2000
-      return '飲み過ぎです' 
+      return '飲み過ぎです'
     elsif vital.moisture_supply <= 1000
       return 'もっと飲んでください'
     end

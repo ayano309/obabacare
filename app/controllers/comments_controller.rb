@@ -14,8 +14,7 @@ class CommentsController < ApplicationController
     @comment = @vital.comments.find(params[:id])
     @comment.destroy
   end
-  
-  
+
   def update
     @comment = @vital.comments.find(params[:id])
     @comment.is_important = Comment.switch_flg(@comment.is_important)
@@ -28,7 +27,7 @@ class CommentsController < ApplicationController
   def set_vital
     @vital = Vital.find(params[:vital_id])
   end
-  
+
   def comment_params
     params.require(:comment).permit(:content,:is_important,:emotion)
   end

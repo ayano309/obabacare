@@ -1,0 +1,35 @@
+= form_with model: @contact, url: contacts_confirm_path, method: :post, local: true do |f|
+  %div
+    .text-left.mb-1
+      = f.label :name
+    .mb-3
+      = f.text_field :name, value: current_user&.name, class: "text", required: true
+  %div
+    .text-left.mb-1
+      = f.label :email
+    .mb-3
+      = f.email_field :email, value: current_user&.email, class: "text", required: true
+  %div
+    .text-left.mb-1
+      = f.label :phone
+    .mb-3
+      = f.telephone_field :phone, class: "text", placeholder: "09012345678", required: true
+  %div
+    .text-left.mb-1
+      = f.label :category
+    .mb-3
+      = f.select :category, Contact.categories_i18n.invert, {include_blank: "お問い合わせ項目を選択して下さい"}, {class: "text", required: true}
+  %div
+    .text-left.mb-1
+      = f.label :message
+    .mb-3
+      = f.text_area :message, class: "form-control", rows: "5", required: true
+  %div.text-left.mb-3
+    %small ・全ての入力項目が必須となっております。
+    %br/
+    %small ・電話番号はハイフンを除き市外局番から記入をお願いいたします。
+    %br/
+    %small ・英数字は半角での記入をお願いいたします。
+    %br/
+  %div.actions.text-center.mb-3
+    = f.submit "次へ進む", class: "btn-log"

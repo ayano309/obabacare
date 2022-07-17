@@ -1,0 +1,35 @@
+.container.p-3.p-md-4.p-lg-5
+  .text-center.mb-3
+    = link_to "一覧へ", dashboard_contacts_path, class: "btn btn-admin btn-sm"
+    >
+    詳細
+  .row
+    .col-md-10.offset-md-1
+      .my-3
+        %h5.font-weight-bold
+          お問い合わせ詳細
+      = render "form" 
+      %table.table.table-bordered.bg-white
+        %tr
+          %th.text-nowrap{:scope => "row"} 問い合わせ日時
+          %td= l @contact.created_at, format: :short
+        %tr
+          %th.text-nowrap{:scope => "row"} ステータス
+          %td= @contact.status_i18n
+        %tr
+          %th.text-nowrap{:scope => "row"} 名前
+          %td= @contact.name
+        %tr
+          %th.text-nowrap{:scope => "row"} メールアドレス
+          %td= @contact.email
+        %tr
+          %th.text-nowrap{:scope => "row"} 電話番号
+          %td= @contact.phone
+        %tr
+          %th.text-nowrap{:scope => "row"} 項目
+          %td= @contact.category_i18n
+        %tr
+          %th.text-nowrap{:scope => "row"} 内容
+          %td= simple_format @contact.message
+      = link_to '削除', dashboard_contact_path(@contact), method: :delete, data: { confirm: '本当に削除してもよろしいですか'}, 
+      class: 'btn btn-danger btn-sm'

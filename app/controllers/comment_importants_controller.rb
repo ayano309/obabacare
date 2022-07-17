@@ -4,4 +4,3 @@ class CommentImportantsController < ApplicationController
     @vitals = Vital.eager_load(:comments).vitals_month(current_user)
   end
 end
-
