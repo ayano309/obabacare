@@ -42,9 +42,12 @@ class Contact < ApplicationRecord
     display_list(page)
   }
   
-  #新規お問い合わせ
+  #未対応のお問い合わせ
+  scope :contact_status, ->{ where(status: 0) }
+  #新規お問い合わせ(未対応、１ヶ月間)
   scope :new_contacts, ->(page){
     where(created_at: Time.zone.today.all_month).
+    contact_status.
     on_contacts(page)
   }
 end
