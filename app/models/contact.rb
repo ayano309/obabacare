@@ -41,4 +41,10 @@ class Contact < ApplicationRecord
     set_order(created_at: :desc).
     display_list(page)
   }
+  
+  #新規お問い合わせ
+  scope :new_contacts, ->(page){
+    where(created_at: Time.zone.today.all_month).
+    on_contacts(page)
+  }
 end

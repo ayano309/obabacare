@@ -13,6 +13,6 @@
                 %th.text-nowrap{:scope => "col"} 項目
                 %th.text-nowrap{:scope => "col"} ステータス
                 %th.text-nowrap{:scope => "col"}
-            %tbody= render @contacts
+            %tbody= render 'contact',contacts: @contacts 
   .row.justify-content-center
     = paginate @contacts

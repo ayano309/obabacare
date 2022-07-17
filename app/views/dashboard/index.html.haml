@@ -1,2 +1,16 @@
 .container
-  管理者index
+  .my-3
+    %h5.font-weight-bold
+      新着お問い合わせ
+  .card
+    .row
+      .col-12
+        .table-responsive
+          %table.table
+            %thead
+              %tr
+                %th.text-nowrap{:scope => "col"} 問い合わせ日時
+                %th.text-nowrap{:scope => "col"} 種類
+                %th.text-nowrap{:scope => "col"} ステータス
+                %th.text-nowrap{:scope => "col"}
+            %tbody= render 'dashboard/contacts/contact', contacts: @contacts

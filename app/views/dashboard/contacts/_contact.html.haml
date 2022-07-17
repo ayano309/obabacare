@@ -1,10 +1,11 @@
-%tr
-  %td.text-nowrap
-    = l contact.created_at, format: :short
-  %td.text-nowrap
-    = contact.category_i18n
-  %td.text-nowrap
-    = contact.status_i18n
-  %td.text-nowrap
-    = link_to dashboard_contact_path(contact), class: "btn btn-admin btn-sm" do
-      詳細
+- contacts.each do |contact|
+  %tr
+    %td.text-nowrap
+      = l contact.created_at, format: :short
+    %td.text-nowrap
+      = contact.category_i18n
+    %td.text-nowrap
+      = contact.status_i18n
+    %td.text-nowrap
+      = link_to dashboard_contact_path(contact), class: "btn btn-admin btn-sm" do
+        詳細
