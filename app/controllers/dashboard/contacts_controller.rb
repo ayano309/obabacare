@@ -7,7 +7,7 @@ class Dashboard::ContactsController < ApplicationController
   end
 
   def show; end
-  
+
   def update
     if @contact.update!(contact_params)
       redirect_to dashboard_contacts_path, notice: 'ステータスを更新しました'
@@ -16,7 +16,7 @@ class Dashboard::ContactsController < ApplicationController
       render :show
     end
   end
-  
+
   def destroy
     @contact.destroy!
     redirect_to dashboard_contacts_path, notice: 'お問い合わせを削除しました'
@@ -27,7 +27,7 @@ class Dashboard::ContactsController < ApplicationController
   def set_contact
     @contact = Contact.find(params[:id])
   end
-  
+
   def contact_params
     params.require(:contact).permit(:status)
   end

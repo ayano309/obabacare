@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy, :update]
   end
   resources :comment_importants, only: [:index]
-  
+
   #感情記録
   resources :emotions, only: [:index]
 

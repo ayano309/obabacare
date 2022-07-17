@@ -19,7 +19,7 @@ class Contact < ApplicationRecord
   validates :message, presence: true
   validates :category, presence: true
   validates :status, presence: true
-  
+
   #サイトについて、要望、その他
   enum category: {
     site: 0,
@@ -33,15 +33,15 @@ class Contact < ApplicationRecord
   }
   #ページネーション
   extend PageList
-  
+
   include SetOrder
-  
+
   #vitalの降順でページネーション
   scope :on_contacts, -> (page) {
     set_order(created_at: :desc).
     display_list(page)
   }
-  
+
   #未対応のお問い合わせ
   scope :contact_status, ->{ where(status: 0) }
   #新規お問い合わせ(未対応、１ヶ月間)

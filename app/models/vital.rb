@@ -50,7 +50,6 @@ class Vital < ApplicationRecord
 
   #並び順
   include SetOrder
-  
 
   #vitalの降順でページネーション
   scope :on_vitals, -> (user,page) {
@@ -58,7 +57,6 @@ class Vital < ApplicationRecord
     set_order(day: :desc).
     display_list(page)
   }
-
 
   #１ヶ月分のvital情報
   scope :on_month, ->{ where(day: Time.zone.today.all_month) }
