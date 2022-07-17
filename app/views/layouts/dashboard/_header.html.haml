@@ -6,7 +6,9 @@
           = image_tag "ojiji.png", size: "250x250"
         %br
         = link_to "おばばcareへ", root_path ,class: 'header_btn'
-        = link_to "会員一覧", dashboard_users_path, class: 'header_btn'
         = link_to "管理者ログアウト", dashboard_logout_path, data: { method: 'delete' } ,class: 'header_btn'
       - else
         = image_tag "ojiji.png", size: "250x250"
+.container
+  = link_to "会員一覧", dashboard_users_path, class: 'btn btn-outline-secondary btn-sm'
+  = link_to "お問い合わせ一覧", dashboard_contacts_path,class: 'btn btn-outline-secondary btn-sm'
