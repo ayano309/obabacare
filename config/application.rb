@@ -28,7 +28,7 @@ module ObabaCare
       g.helper false
       g.test_framework false
     end
-    config.hosts << 'a27cb57915834a079b57b25287437d9a.vfs.cloud9.ap-northeast-1.amazonaws.com'
+
     # バリデーションエラーが発生したときに'field_with_errors'というclassを付加しない
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| html_tag }
   end
