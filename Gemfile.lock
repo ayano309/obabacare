@@ -117,6 +117,8 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faker (2.21.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -339,6 +341,7 @@ DEPENDENCIES
   enum_help
   erb2haml
   factory_bot_rails
+  faker
   hamlit
   jbuilder (~> 2.7)
   kaminari
