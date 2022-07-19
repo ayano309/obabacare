@@ -4,7 +4,7 @@ class VitalMonthsController < ApplicationController
   def index
     if params[:keyword].present?
       @keyword = params[:keyword].strip
-      @vital_months = Vital.search_month_information(@keyword)
+      @vital_months = Vital.search_month_information(@keyword,current_user)
     else
       @keyword = ''
       @vital_months = Vital.vitals_month(current_user)
