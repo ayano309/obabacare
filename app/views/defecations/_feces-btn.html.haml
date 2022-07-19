@@ -6,4 +6,7 @@
   - else
     .vital_feces
       = link_to vital_defecations_path(vital), data: { method: 'post' },remote: true do
-        = image_tag 'feces.svg'
+        .dropdown
+          = image_tag 'feces.svg',class: 'dropbtn'
+          .dropdown-content.fefes_content
+            %p 便が出たらクリック
