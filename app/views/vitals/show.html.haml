@@ -51,7 +51,8 @@
     %div.mt-3
       = f.label :content, '●コメント内容'
     %div
-      = f.text_field :content, class: 'text',required: true, placeholder: "#{I18n.l(@vital.day, format: :default)} のコメント入力"
+      = f.text_field :content, class: 'text',required: true, 
+      placeholder: "#{I18n.l(@vital.day, format: :default)}　 会話内容や睡眠の質、排泄物の色など気になったこと"
     = f.submit '保存', class: 'btn-log mb-3'
     
     

@@ -52,6 +52,18 @@
   }
 }
 
+.apeal{
+    display: inline-block;
+    margin:  1.5em 0 0 0.5em;
+    padding: 7px 10px;
+    min-width: 120px;
+    max-width: 100%;
+    color: #fff;
+    font-size: 16px;
+    background: #03111b;
+    border-radius: 10px;
+    font-weight: bold;
+}
 
 @media screen and (max-width: 480px) {
 	.carriergiver_support{

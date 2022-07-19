@@ -1,5 +1,7 @@
-.top-heading
-  %p バイタルの記録の例です
+.d-flex.mt-5
+  .top-heading
+    %p バイタルの記録の例です
+  .apeal 異常値があると色が変わります        
 .card
   .card_vital.container.table-responsive
     %table.table.table-hover
@@ -15,8 +17,8 @@
       %tbody
         %tr
           %td 36.2
-          %td 125
-          %td 75
+          %td.red 140
+          %td.blue 59
           %td 76
           %td 15
           %td 99
