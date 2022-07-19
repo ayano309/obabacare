@@ -32,6 +32,26 @@
   
   }
 }
+//topタイトル
+.top-heading{
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 0;
+  padding: 7px 10px;
+  min-width: 120px;
+  max-width: 100%;
+  color: #555;
+  font-size: 16px;
+  background: #FFF;
+  border: solid 3px #555;
+  box-sizing: border-box;
+  p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+}
+
 
 @media screen and (max-width: 480px) {
 	.carriergiver_support{
