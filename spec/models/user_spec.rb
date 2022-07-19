@@ -21,5 +21,42 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'userモデルのテスト' do
+   
+    #nameについて
+    it 'ユーザー名がない場合、無効' do
+      user = build(:user, name: nil)
+      user.valid?
+      expect(user.errors[:name]).to include('を入力してください')
+    end
+    
+    
+    it 'ユーザー名が21文字以上、無効' do
+      user = build(:user, name: 'a' * 21)
+      user.valid?
+      expect(user.errors[:name]).to include('は20文字以内で入力してください')
+    end
+    
+    #eamilについて
+    it 'メールアドレスがない場合、無効' do
+      user = build(:user, email: nil)
+      user.valid?
+      expect(user.errors[:email]).to include('を入力してください')
+    end
+
+    it 'メールアドレスが256文字以上、無効' do
+      user = build(:user, email: 'a' * 253 << '@com')
+      user.valid?
+      expect(user.errors[:email]).to include('は256文字以内で入力してください')
+    end
+
+    
+
+    it 'メールアドレスが指定formatに合わない場合、無効' do
+      invalid_emails = %w[user@foo,com user_at_foo.org example.user@foo.foo@bar_baz.com foo@bar+baz.com foo@bar..com]
+      invalid_emails.each do |invalid_email|
+        expect(build(:user, email: invalid_email)).to be_invalid
+      end
+    end
+  end
 end
