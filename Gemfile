@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-rails'
+  gem 'faker'
 end
 
 group :development do
