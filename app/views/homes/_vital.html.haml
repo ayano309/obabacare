@@ -1,0 +1,45 @@
+.card
+  .card_vital.container.table-responsive
+    %table.table.table-hover
+      %thead
+        %tr
+          %th 体温
+          %th 高血圧
+          %th 低血圧
+          %th 脈拍
+          %th 呼吸数
+          %th 酸素飽和度(SpO2)%
+          %th{:colspan => "3"}
+      %tbody
+        %tr
+          %td 36.2
+          %td 125
+          %td 75
+          %td 76
+          %td 15
+          %td 99
+  .card_detail
+    .card_content
+      .card_comment
+        %p.card_title
+          最新コメント
+        %br
+        %div.card_comment_detail
+          今日はどら焼きを食べた
+      .card_faces
+        .vital_feces
+          = image_tag 'feces-active.svg'
+      .card_day
+        %p 
+          07-17
+          %br
+          16:33
+    .card_content
+      %p.card_title
+        水分補給
+      = image_tag 'water.png',size: "50x50"
+      x 5杯
+      (900mL)
+      %br
+      .moisture-check.red
+        もっと飲んでください
