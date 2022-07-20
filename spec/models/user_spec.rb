@@ -97,6 +97,15 @@ RSpec.describe User, type: :model do
         end
       end
       
+      context 'Comments' do
+        let(:target) { :comments }
+        it { expect(association.macro).to eq :has_many }
+        it { expect(association.class_name).to eq 'Comment' }
+        it 'Userが削除されたらCommentも削除されること' do
+          create(:comment, user_id:user.id)
+          expect { user.destroy }.to change(Comment, :count).by(-1)
+        end
+      end
       
     end
   end
