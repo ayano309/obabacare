@@ -25,6 +25,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :vitals, dependent: :destroy
+  has_many :comments, dependent: :destroy
   #排便機能
   has_many :defecations, dependent: :destroy
   has_many :memos, dependent: :destroy
