@@ -20,6 +20,7 @@ class Memo < ApplicationRecord
 
   validates :title , presence: true
   validates :content , presence: true
+  validates :category , presence: true
 
   enum category: {
     advice: 0,
