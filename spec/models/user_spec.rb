@@ -146,7 +146,21 @@ RSpec.describe User, type: :model do
           expect { user.destroy }.to change(Memo, :count).by(-1)
         end
       end
-      
+    end
+    
+    describe "メソッドのテスト" do
+      let(:user) { create(:user) }
+      let(:vital) { create(:vital) }
+      describe "排便機能存在していたら、trueを返す" do
+        it "排便機能、trueを返す" do
+          user.defecations.create!(vital_id: vital.id)
+          expect(user.defecation_by?(vital)).to be_truthy
+        end
+  
+        it "排便機能、存在していない場合、falseを返す" do
+          expect(user.defecation_by?(vital)).to be_falsey
+        end
+      end
     end
   end
 end
