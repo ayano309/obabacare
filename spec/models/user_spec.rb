@@ -162,5 +162,16 @@ RSpec.describe User, type: :model do
         end
       end
     end
+    
+    describe "#self.guest" do
+      it "ゲストユーザーが存在しない場合新規で作成される" do
+        expect { User.guest }.to change(User.where(name: 'guestuser',email: 'guest@example.com'), :count).by(1)
+      end
+
+      it "ゲストユーザーが存在する場合は作成しない" do
+        create(:user,name: 'guestuser', email: 'guest@example.com')
+        expect { User.guest }.to change(User.where(email: 'guest@example.com'), :count).by(0)
+      end
+    end
   end
 end
