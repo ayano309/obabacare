@@ -4,6 +4,7 @@ FactoryBot.define do
     emotion { Comment.emotions.keys.sample }
     is_important { false }
     association :vital
+    association :user
   end
 end
   
