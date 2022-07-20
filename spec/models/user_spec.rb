@@ -60,7 +60,7 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include('は256文字以内で入力してください')
     end
     
-    it '同じアドレスのインスタンスは無効である' do
+    it '同じアドレスは無効である' do
       user_1 = FactoryBot.create(:user, email: 'sample@sample.com')
       user_2 = FactoryBot.build(:user, email: 'sample@sample.com')
       user_2.valid?
@@ -81,6 +81,23 @@ RSpec.describe User, type: :model do
       expect(user.errors.of_kind?(:password, :too_short)).to be_truthy
     end
     
-
+    describe '各モデルとのアソシエーション' do
+      let(:association) do
+        described_class.reflect_on_association(target)
+      end
+        let(:user) { create(:user) }
+  
+      context 'Profile' do
+        let(:target) { :profile }
+        it { expect(association.macro).to eq :has_one }
+        it { expect(association.class_name).to eq 'Profile' }
+        it 'Userが削除されたらProfileも削除されること' do
+          create(:profile, user_id:user.id)
+          expect { user.destroy }.to change(Profile, :count).by(-1)
+        end
+      end
+      
+      
+    end
   end
 end
