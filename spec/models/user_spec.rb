@@ -97,6 +97,16 @@ RSpec.describe User, type: :model do
         end
       end
       
+      context 'Vitals' do
+        let(:target) { :vitals }
+        it { expect(association.macro).to eq :has_many }
+        it { expect(association.class_name).to eq 'Vital' }
+        it 'Userが削除されたらVitalも削除されること' do
+          create(:vital, user_id:user.id)
+          expect { user.destroy }.to change(Vital, :count).by(-1)
+        end
+      end
+      
       context 'Comments' do
         let(:target) { :comments }
         it { expect(association.macro).to eq :has_many }
