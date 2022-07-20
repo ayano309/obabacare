@@ -22,7 +22,11 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'userモデルのテスト' do
-   
+    
+    it '有効なユーザーモデル作成' do
+      user = FactoryBot.build(:user)
+      expect(user).to be_valid
+    end
     #nameについて
     it 'ユーザー名がない場合、無効' do
       user = build(:user, name: nil)
@@ -38,10 +42,16 @@ RSpec.describe User, type: :model do
     end
     
     #eamilについて
-    it 'メールアドレスがない場合、無効' do
-      user = build(:user, email: nil)
+    it 'メールアドレスがない場合、無効である' do
+      user = FactoryBot.build(:user, email: '')
       user.valid?
-      expect(user.errors[:email]).to include('を入力してください')
+      expect(user.errors.of_kind?(:email, :blank)).to be_truthy
+    end
+
+    it 'メールアドレスが不正な場合、無効である' do
+      user = FactoryBot.build(:user, email: 'test.test.com')
+      user.valid?
+      expect(user.errors.of_kind?(:email, :invalid)).to be_truthy
     end
 
     it 'メールアドレスが256文字以上、無効' do
@@ -49,6 +59,28 @@ RSpec.describe User, type: :model do
       user.valid?
       expect(user.errors[:email]).to include('は256文字以内で入力してください')
     end
+    
+    it '同じアドレスのインスタンスは無効である' do
+      user_1 = FactoryBot.create(:user, email: 'sample@sample.com')
+      user_2 = FactoryBot.build(:user, email: 'sample@sample.com')
+      user_2.valid?
+  
+      expect(user_2.errors.of_kind?(:email, :taken)).to be_truthy
+    end
+    
+    #パスワードについて
+    it 'パスワードがない場合、無効である' do
+      user = FactoryBot.build(:user, password: '')
+      user.valid?
+      expect(user.errors.of_kind?(:password, :blank)).to be_truthy
+    end
+    
+    it 'パスワードが短すぎ場合、無効である' do
+      user = FactoryBot.build(:user, password: 'a')
+      user.valid?
+      expect(user.errors.of_kind?(:password, :too_short)).to be_truthy
+    end
+    
 
   end
 end
