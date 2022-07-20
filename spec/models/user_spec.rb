@@ -127,6 +127,16 @@ RSpec.describe User, type: :model do
         end
       end
       
+      context 'MedicalHistory' do
+        let(:target) { :medical_histories }
+        it { expect(association.macro).to eq :has_many }
+        it { expect(association.class_name).to eq 'MedicalHistory' }
+        it 'Userが削除されたらMedicalHistoryも削除されること' do
+          create(:medical_history, user_id:user.id)
+          expect { user.destroy }.to change(MedicalHistory, :count).by(-1)
+        end
+      end
+      
     end
   end
 end
