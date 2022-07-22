@@ -24,7 +24,7 @@ class CommentsController < ApplicationController
     @comment = @vital.comments.find(params[:id])
     @comment.is_important = Comment.switch_flg(@comment.is_important)
     @comment.update(is_important: @comment.is_important)
-    flash[:notice] = '解決済にしました'
+    flash[:notice] = '変更しました'
     redirect_to comment_importants_path
   end
 
