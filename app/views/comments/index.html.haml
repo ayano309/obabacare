@@ -1,0 +1,29 @@
+.container
+  = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
+  = render 'commons/comment_tab'
+  .card.card_month
+    %table.table.table-hover
+      %thead
+        %tr
+          %th 日付
+          %th.comment_table_none
+          %th コメント内容
+      - @vitals.each do |vital|
+        %tbody
+          %tr
+            %td
+              = link_to vital_path(vital), class: "btn btn-sm btn-secondary" do
+                = l(vital.day, format: :default)
+          - vital.comments.each do |comment|
+            %tr
+              %td
+              %td.comment_table_none
+                = comment.comment_created_at
+              %td{:class => "#{important_comment?(comment)} comment_table"}
+                = comment.content
+                .comment_status.mt-2
+                  = form_with model: [vital,comment], url: vital_comment_path(vital,comment), local: true, method: :patch do |f|
+                    - if comment.is_important == false
+                      = f.submit "重要にする", class: "btn btn-outline-danger  btn-sm"
+                    - else
+                      = f.submit "解決済にする", class: "btn btn-outline-primary  btn-sm"

@@ -1,6 +1,11 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_vital
+  before_action :set_vital,except: [:index]
+  
+  def index
+    @vitals = Vital.eager_load(:comments).vitals_month(current_user)
+  end
+  
   def create
     @comment = @vital.comments.new(comment_params)
     @comment.user_id = current_user.id

@@ -1,0 +1,9 @@
+.tabs.my-3
+  .tabs_item{class: "#{add_active_class(new_user_session_path)}"}
+    = link_to  new_user_session_path do
+      %i.fas.fa-sign-in-alt
+      Log in
+  .tabs_item{class: "#{add_active_class(new_user_registration_path)}"}
+    = link_to new_user_registration_path do
+      %i.fas.fa-user-plus
+      Sign up
