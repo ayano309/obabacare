@@ -87,7 +87,7 @@ $feces-size: 30px;
     	margin: 0 0 10px 0;
     }
   }
-  
+
   &_memo-category{
     	display: inline-block;
     	margin: 0 .1em .6em 0;
@@ -101,9 +101,9 @@ $feces-size: 30px;
         color: #0000ee;
       }
     &:before {
-    	content: "#";	
+    	content: "#";
     }
-    
+
     &:hover {
     	color: #fff;
     	background-color:  #0000ee;
@@ -141,7 +141,7 @@ $feces-size: 30px;
   padding: 10% 5% 0%;
   margin: 20px auto;
   font-weight: bold;
-  
+
   &_vitalday{
     font-weight: bold;
   	position: absolute;
@@ -167,9 +167,10 @@ $feces-size: 30px;
 @media screen and (max-width: 480px) {
 	.card_important {
     padding: 15% 5% 0%;
-    
+
     &_comment{
       height: 200px;
     }
   }
 }
+

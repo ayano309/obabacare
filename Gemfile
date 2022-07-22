@@ -36,6 +36,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-rails'
   gem 'faker'
+  gem 'pry-byebug'
 end
 
 group :development do
@@ -50,7 +51,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'bullet'
   gem 'erb2haml'
-  gem 'pry-byebug'
+  
   gem 'spring'
 end
 

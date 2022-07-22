@@ -76,4 +76,7 @@ class Vital < ApplicationRecord
     set_order(day: :asc).
     by_user(user)
   }
+  #排便機能で使う#3日間で便秘気味かどうか
+  scope :vital_defecations_days, -> { where(day: 2.day.ago.beginning_of_day..Time.zone.now.end_of_day) } 
+  
 end

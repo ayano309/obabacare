@@ -1,17 +1,26 @@
-.tabs
+.tabs.mb-3
   .tabs_item{class: "#{add_active_class(vitals_path)}"}
     = link_to  vitals_path do
       %i.fas.fa-heartbeat
+      %br
       一覧
   .tabs_item{class: "#{add_active_class(vital_months_path)}"}
     = link_to vital_months_path do
       %i.fas.fa-heartbeat
+      %br
       1ヶ月間
   .tabs_item{class: "#{add_active_class(memos_path)}"}
     = link_to memos_path do
       %i.fas.fa-book-open
+      %br
       メモ
   .tabs_item{class: "#{add_active_class(emotions_path)}"}
     = link_to emotions_path do
       %i.fas.fa-smile-beam
+      %br
       感情
+  .tabs_item{class: "#{add_active_class(profile_path)}"}
+    = link_to profile_path do
+      %i.fas.fa-user
+      %br
+      MyPage
