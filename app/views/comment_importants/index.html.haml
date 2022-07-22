@@ -10,4 +10,4 @@
           = comment.content
         = form_with model: [vital,comment], url: vital_comment_path(vital,comment), local: true, method: :patch do |f|
           - if comment.is_important
-            = f.submit "解決済にする", class: "btn btn-outline-success  btn-sm"
+            = f.submit "解決済にする", class: "btn btn-outline-primary  btn-sm"

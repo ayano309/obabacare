@@ -6,7 +6,7 @@
       %thead
         %tr
           %th 日付
-          %th 
+          %th.comment_table_none
           %th コメント内容
       - @vitals.each do |vital|
         %tbody
@@ -17,7 +17,13 @@
           - vital.comments.each do |comment|
             %tr
               %td
-              %td
+              %td.comment_table_none
                 = comment.comment_created_at
-              %td{:class => "#{important_comment?(comment)}"}
+              %td{:class => "#{important_comment?(comment)} comment_table"}
                 = comment.content
+                .comment_status.mt-2
+                  = form_with model: [vital,comment], url: vital_comment_path(vital,comment), local: true, method: :patch do |f|
+                    - if comment.is_important == false
+                      = f.submit "重要にする", class: "btn btn-outline-danger  btn-sm"
+                    - else
+                      = f.submit "解決済にする", class: "btn btn-outline-primary  btn-sm"
