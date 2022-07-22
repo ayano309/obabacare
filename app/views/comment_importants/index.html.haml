@@ -1,6 +1,13 @@
 .container
   = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
   = render 'commons/comment_tab'
+  - if defecations_exists?(@defecations)
+    .carriergiver
+      = image_tag 'obaba-care.png', size: "100x100"
+      %div.carriergiver_message
+        %p
+          便秘気味です
+        (#{2.day.ago.to_date}~#{Time.zone.now.to_date}の間)
   - @vitals.each do |vital|
     - vital.comments.important_comment.each do |comment|
       .card.card_important
