@@ -1,0 +1,8 @@
+.tabs.my-3
+  .tabs_item{class: "#{add_active_class(comment_importants_path)}"}
+    = link_to comment_importants_path do
+      %i.fas.fa-exclamation-circle
+      重要コメント
+  .tabs_item{class: "#{add_active_class(comments_path)}"}
+    = link_to comments_path do
+      一覧

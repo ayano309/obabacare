@@ -1,5 +1,6 @@
 .container
   = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
+  = render 'commons/comment_tab'
   .card.card_month
     %table.table.table-hover
       %thead
@@ -18,5 +19,5 @@
               %td
               %td
                 = comment.comment_created_at
-              %td
+              %td{:class => "#{important_comment?(comment)}"}
                 = comment.content

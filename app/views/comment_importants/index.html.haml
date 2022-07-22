@@ -1,5 +1,6 @@
 .container
   = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
+  = render 'commons/comment_tab'
   - @vitals.each do |vital|
     - vital.comments.important_comment.each do |comment|
       .card.card_important
