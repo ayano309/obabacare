@@ -1,0 +1,22 @@
+.container
+  = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
+  .card.card_month
+    %table.table.table-hover
+      %thead
+        %tr
+          %th 日付
+          %th 
+          %th コメント内容
+      - @vitals.each do |vital|
+        %tbody
+          %tr
+            %td
+              = link_to vital_path(vital), class: "btn btn-sm btn-secondary" do
+                = l(vital.day, format: :default)
+          - vital.comments.each do |comment|
+            %tr
+              %td
+              %td
+                = comment.comment_created_at
+              %td
+                = comment.content
