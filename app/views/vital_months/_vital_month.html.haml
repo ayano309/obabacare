@@ -20,4 +20,5 @@
         %td{:class => "#{check_low_bp(vital)}"}= vital.low_bp
         %td{:class => "#{check_pulse(vital)}"}= vital.pulse
         %td{:class => "#{check_breathing(vital)}"}= vital.breathing
-        %td{:class => "#{check_oxygen_saturation(vital)}"}= vital.oxygen_saturation
+        %td{:class => "#{check_oxygen_saturation(vital)}"}
+          #{vital.oxygen_saturation}%
