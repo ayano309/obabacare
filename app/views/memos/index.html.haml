@@ -25,8 +25,5 @@
             %br
             %p= memo.content
   = paginate @memos
-  - if user_signed_in?
-    = link_to new_memo_path do
-      .float_btn
-        new
-        %i.fa.fa-plus
+  
+  = render 'commons/new_btn'
