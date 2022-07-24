@@ -1,0 +1,11 @@
+%p.card_title.mt-2
+  食事量
+%p
+  - vital.meals.each do |meal|
+    = meal.time_period_i18n
+    - if meal.meal_quantity == 'one_third'
+      =image_tag "one_third.png", size: "70x70"
+    -elsif meal.meal_quantity == 'half'
+      =image_tag "half.png", size: "70x70"
+    -elsif meal.meal_quantity == 'complete_eating'
+      =image_tag "complete.png", size: "70x70"
