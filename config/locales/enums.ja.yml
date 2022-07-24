@@ -10,13 +10,13 @@ ja:
       gender:
         male: '男性'
         female: '女性'
-      blood_type: 
+      blood_type:
         A: 'A型'
         B: 'B型'
         O: 'O型'
         AB: 'AB型'
     comment:
-      emotion: 
+      emotion:
         happy: '喜'
         anger: '怒'
         sad: '哀'
@@ -31,3 +31,12 @@ ja:
       status:
         unsupported: '未対応'
         closed: '対応済'
+    meal:
+      meal_quantity:
+        one_third: '1/3以上'
+        half: '半分以上'
+        complete_eating: '全量(完食)'
+      time_period:
+        breakfast: '朝'
+        lunch: '昼'
+        dinner: '夜'
