@@ -51,6 +51,7 @@ class Comment < ApplicationRecord
 
   #重要コメント一覧
   scope :important_comment, ->{ where(is_important: true) }
+  #重要コメントの数
   scope :important_comment_count, ->{ 
     important_comment.
     comment_month
