@@ -6,7 +6,14 @@
           = link_to  vitals_path do
             = image_tag "obaba-logo.png", size: "250x250"
           %br
-          =link_to '今月の重要コメント', comment_importants_path, class: "header_loginBtn"
+          - if only_this_page(comment_importants_path)
+            = link_to  'バイタル一覧', vitals_path,class: "header_loginBtn mb-3"
+          -else
+            =link_to comment_importants_path, class: "header_loginBtn comment" do
+              重要コメント(#{ Date.today.month}月)
+              %div{class: "#{important_comment_exists?(current_user.comments)}"}
+                %p
+                  #{current_user.comments.important_comment_count.count}件
       - else
         = link_to  root_path do
           = image_tag "obaba-logo.png", size: "250x250"

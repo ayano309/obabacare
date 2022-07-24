@@ -78,3 +78,23 @@
 .important_comment{
   background-color: #b7d3a2;
 }
+
+.comment{
+  position: relative;
+  &_count{
+    position: absolute;
+    top: -10px;
+  	left: -10px;
+  	width: 30px;
+  	height: 30px;
+  	margin: 0;
+  	text-align: center;
+  	color: #616161;
+  	border-radius: 100%;
+  	background: pink;
+    p{
+      margin-top: 0.5rem;
+      font-size: 0.5rem;
+    }
+  }
+}
