@@ -10,6 +10,7 @@ $feces-size: 30px;
 
   &_title{
     font-weight: bold;
+    margin: 0;
   }
   &_vital {
     height: 150px;
@@ -22,7 +23,7 @@ $feces-size: 30px;
   }
 
   &_content {
-    padding: 16px 16px;
+    padding: 0px 16px 16px;
     width: 50%;
   }
 

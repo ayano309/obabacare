@@ -30,5 +30,7 @@
               %br
               .moisture-check.red
                 = moisture_supply_check(vital)
+          .card_meal.container
+            = render 'meals/meal' , vital: vital
   = paginate @vitals
   = render 'commons/new_btn'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_17_044701) do
+ActiveRecord::Schema.define(version: 2022_07_24_132300) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 2022_07_17_044701) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_defecations_on_user_id"
     t.index ["vital_id"], name: "index_defecations_on_vital_id"
+  end
+
+  create_table "meals", force: :cascade do |t|
+    t.integer "time_period"
+    t.integer "meal_quantity"
+    t.integer "user_id", null: false
+    t.integer "vital_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_meals_on_user_id"
+    t.index ["vital_id"], name: "index_meals_on_vital_id"
   end
 
   create_table "medical_histories", force: :cascade do |t|
