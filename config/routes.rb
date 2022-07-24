@@ -35,6 +35,8 @@ Rails.application.routes.draw do
     #排便機能
     resource :defecations, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy, :update]
+    #食事量記録
+    resources :meals, except: [:index,:show]
   end
   #コメント一覧と重要コメント
   resources :comments, only: [:index]

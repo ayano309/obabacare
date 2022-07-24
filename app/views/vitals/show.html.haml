@@ -27,6 +27,7 @@
     .vital_feces.feces-btn
       = render 'defecations/feces-btn' , vital: @vital
 
+  =link_to '食事量記録する', new_vital_meal_path(@vital), class: "btn btn-sm btn-color"
   // コメント
   .vital
     %h2.vital_comment コメント一覧

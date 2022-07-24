@@ -32,6 +32,8 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy,  class_name: 'Profile'
   #既往歴
   has_many :medical_histories, dependent: :destroy
+  #食事
+  has_many :meals, dependent: :destroy
 
   EMAIL_REGEX =  /\A\S+@\S+\.\S+\z/.freeze
 

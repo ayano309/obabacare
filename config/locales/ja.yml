@@ -40,6 +40,9 @@ ja:
         message: 'お問い合わせ内容'
         category: 'お問い合わせ項目'
         status: 'ステータス'
+      meal:
+        meal_quantity: '食事量'
+        time_period: '食事時間'
   date:
     abbr_day_names:
     - 日
