@@ -6,8 +6,11 @@
       .card.card_important
         .card_important_vitalday
           = comment.vital.vital_created_at
-        .card_important_comment
-          = comment.content
-        = form_with model: [vital,comment], url: vital_comment_path(vital,comment), local: true, method: :patch do |f|
-          - if comment.is_important
-            = f.submit "解決済にする", class: "btn btn-outline-primary  btn-sm"
+        .dropdown
+          .card_important_comment.dropbtn
+            = comment.content
+            .dropdown-content.dropdown-comment
+              = render 'vitals/vital', vital: vital
+          = form_with model: [vital,comment], url: vital_comment_path(vital,comment), local: true, method: :patch do |f|
+            - if comment.is_important
+              = f.submit "解決済にする", class: "btn btn-outline-primary  btn-sm" 
