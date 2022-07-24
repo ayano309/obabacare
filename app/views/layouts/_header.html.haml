@@ -11,9 +11,9 @@
           -else
             =link_to comment_importants_path, class: "header_loginBtn comment" do
               重要コメント(#{ Date.today.month}月)
-            
-              .comment_count
-                %p重要
+              - if current_user.comments.important_comment_count.exists?
+                .comment_count
+                  %p重要
       - else
         = link_to  root_path do
           = image_tag "obaba-logo.png", size: "250x250"
