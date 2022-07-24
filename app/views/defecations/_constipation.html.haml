@@ -1,0 +1,11 @@
+- if current_user.vitals.exists?
+  - if defecations_exists?(@defecations)
+    .carriergiver
+      - if current_user.gender == "male" 
+        = image_tag 'ojiji.png',size: '100x100'
+      -else
+        = image_tag 'obaba-care.png',size: '100x100'
+      %div.carriergiver_message
+        %p
+          便秘気味です
+        (#{2.day.ago.to_date}~#{Time.zone.now.to_date}の間)

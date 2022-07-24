@@ -10,6 +10,8 @@ class VitalsController < ApplicationController
       @keyword = ''
       @vitals = Vital.on_vitals(@user, params[:page])
     end
+    vital_ids = current_user.vitals.vital_defecations_days.pluck(:id)
+    @defecations = current_user.defecations.where(vital_id: vital_ids)
   end
 
   def show

@@ -4,9 +4,21 @@ module CommentHelper
     'card_comment_detail' if comments.exists?
   end
   
+  #重要なコメントは存在するか?
+  def important_comment_exists?(comments)
+    'comment_count' if comments.important_comment_count.exists?
+  end
+  
   #重要なコメントか
   def important_comment?(comment)
     'important_comment' if comment.is_important == true
+  end
+  
+  
+  #重要コメントページだったらvital一覧リンク,それ以外は重要コメントリンク
+  def only_this_page(path)
+    path = path.split('?').first  
+    true if current_page?(path)
   end
   
   #便秘気味か
