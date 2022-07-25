@@ -9,4 +9,4 @@
             = link_to '編集する',edit_medical_history_path(medical)
             = link_to '削除する',medical_history_path(medical),data:{method: 'delete',confirm:'本当に削除してもよろしいですか？'}
       %br
-      発症時期: #{medical.disease_when_onset}
+      発症時期: #{medical.disease_when_onset}(#{medical.when_onset.year - current_user.birthday.year}歳)
