@@ -1,5 +1,5 @@
 .container
-  = link_to '戻る', :back, class: "btn btn-secondary btn-sm"
+  = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
   %ul
     = render 'layouts/error', object: vital
   = form_with(model: vital, local: true) do |f|
