@@ -1,5 +1,6 @@
 .container
-  = link_to "一覧へ",vitals_path, class: "btn btn-secondary btn-sm"
+  = link_to "一覧へ",vitals_path, class: "btn btn-secondary btn-sm mb-2"
+  %br
   -if @vital.meals.count <= 2
     = image_tag "full.png",size: "70x70"
     =link_to '食事量記録する', new_vital_meal_path(@vital), class: "btn  btn-color"

@@ -146,6 +146,16 @@ RSpec.describe User, type: :model do
           expect { user.destroy }.to change(Memo, :count).by(-1)
         end
       end
+      
+      context 'Meal' do
+        let(:target) { :meals }
+        it { expect(association.macro).to eq :has_many }
+        it { expect(association.class_name).to eq 'Meal' }
+        it 'Userが削除されたらMealも削除されること' do
+          create(:meal, user_id:user.id)
+          expect { user.destroy }.to change(Meal, :count).by(-1)
+        end
+      end
     end
     
     describe "メソッドのテスト" do
