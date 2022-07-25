@@ -10,6 +10,7 @@ class VitalsController < ApplicationController
       @keyword = ''
       @vitals = Vital.eager_load(:meals).on_vitals(@user, params[:page])
     end
+    #便秘機能
     vital_ids = current_user.vitals.vital_defecations_days.pluck(:id)
     @defecations = current_user.defecations.where(vital_id: vital_ids)
   end

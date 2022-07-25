@@ -1,0 +1,11 @@
+.container
+  = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
+  = render 'layouts/error', object: @meal
+  = form_with(model: [@vital,@meal],url: vital_meal_path(@vital,@meal), local: true) do |f|
+    %div.mt-3
+      = f.label :meal_quantity, '●食事摂取量を選択してください'
+    %div
+      = f.collection_radio_buttons :meal_quantity, Meal.meal_quantities_i18n, :first , :last do |b|
+        = b.label(class: "radio_button mr-3") { b.radio_button(class: "radio_button") + b.text }
+      %br
+    = f.submit '変更', class: 'btn-log mb-3'

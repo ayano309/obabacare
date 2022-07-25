@@ -1,5 +1,5 @@
 .container
-  = link_to '戻る', :back, class: "btn btn-secondary btn-sm"
+  = link_to '戻る', profile_path, class: "btn btn-secondary btn-sm"
   %ul
     = render 'layouts/error', object: @profile
   = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
