@@ -17,11 +17,26 @@ class MealsController < ApplicationController
       render :new
     end
   end
+  
+  def edit
+    @meal = @vital.meals.find(params[:id])
+  end
+  
+  def update
+    @meal = @vital.meals.find(params[:id])
+    
+    if @meal.update(meal_params)
+      redirect_to vitals_path, notice: '更新できました'
+    else
+      flash.now[:error] = '更新できませんでした'
+      render :edit
+    end
+  end
 
   def destroy
     @meal = @vital.meals.find(params[:id])
     @meal.destroy
-    redirect_to vitals_path
+    redirect_to vitals_path, notice: '削除できました'
   end
 
   

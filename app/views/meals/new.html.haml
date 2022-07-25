@@ -1,13 +1,20 @@
 .container
-  = link_to '戻る', :back, class: "btn btn-secondary btn-sm"
+  = link_to '戻る', vitals_path, class: "btn btn-secondary btn-sm"
   = render 'layouts/error', object: @meal
   = form_with(model: [@vital,@meal],local: true) do |f|
     %div.mt-5
       = f.label :time_period, '●食事時間を選択してください'
     %div
-      = f.collection_radio_buttons :time_period, Meal.time_periods_i18n, :first , :last do |b|
-        = b.label(class: "radio_button mr-3") { b.radio_button(class: "radio_button") + b.text }
-      %br
+      -unless @vital.meals.breakfast.present?
+        = f.radio_button :time_period, :breakfast
+        = f.label :time_period, "朝", {value: :breakfast, class: "mr-3",style: "display: inline-block;"}
+      -unless @vital.meals.lunch.present?
+        = f.radio_button :time_period, :lunch
+        = f.label :time_period, "昼", {value: :lunch, class: "mr-3", style: "display: inline-block;"}
+      -unless @vital.meals.dinner.present?
+        = f.radio_button :time_period, :dinner
+        = f.label :time_period, "夜", {value: :dinner, class: "mr-3", style: "display: inline-block;"}
+      
     %div.mt-3
       = f.label :meal_quantity, '●食事摂取量を選択してください'
     %div
