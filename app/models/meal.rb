@@ -25,4 +25,7 @@ class Meal < ApplicationRecord
   enum time_period: { breakfast: 0, lunch: 1, dinner: 2 }
   enum meal_quantity: { one_third: 0, half: 1, complete_eating: 2}
   
+  scope :breakfast, -> { where(time_period: 'breakfast') }
+  scope :lunch, -> { where(time_period: 'lunch') }
+  scope :dinner, -> { where(time_period: 'dinner') }
 end
