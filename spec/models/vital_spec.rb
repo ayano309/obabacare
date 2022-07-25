@@ -120,6 +120,14 @@ RSpec.describe Vital, type: :model do
           expect { @vital.destroy }.to change(Comment, :count).by(-1)
         end
       end
+      
+      context 'Mealモデルとのアソシエーション' do
+        let(:target) { :meals }
+        it 'Mealとの関連付けはhas_manyであること' do
+          expect(association.macro).to eq :has_many
+        end
+      end
+      
   
       
     end
