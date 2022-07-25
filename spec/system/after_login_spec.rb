@@ -16,10 +16,7 @@ describe 'ユーザーログイン後のテスト' do
         it 'urlが正しい' do
         expect(current_path).to eq '/vitals'
         end
-        it '今月の重要コメントリンクが正しい' do
-          comments = find_all('a')[1].native.inner_text
-          expect(page).to have_link comments,href: comment_importants_path
-        end
+        
         it 'マイページのリンクが正しい' do
           mypage = find_all('a')[2].native.inner_text
           expect(page).to have_link mypage,href: profile_path
