@@ -24,7 +24,7 @@
 
 ## 設計書
 ### ER図
-![obabacare](https://user-images.githubusercontent.com/99533616/180717755-5fc38c8d-2f46-4b32-be8e-70d71351ed6c.jpg)
+![obabacare](https://user-images.githubusercontent.com/99533616/180721160-6611c706-516c-471c-9f26-934dd962c376.jpg)
 
 
 ## 開発環境
