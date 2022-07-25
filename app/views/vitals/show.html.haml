@@ -26,8 +26,10 @@
 
     .vital_feces.feces-btn
       = render 'defecations/feces-btn' , vital: @vital
-
-  =link_to '食事量記録する', new_vital_meal_path(@vital), class: "btn btn-sm btn-color"
+      
+  -if @vital.meals.count <= 2
+    = image_tag "full.png",size: "70x70"
+    =link_to '食事量記録する', new_vital_meal_path(@vital), class: "btn  btn-color"
   // コメント
   .vital
     %h2.vital_comment コメント一覧

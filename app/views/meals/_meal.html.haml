@@ -1,5 +1,9 @@
-%p.card_title.mt-2
-  食事量
+%p.mt-2
+  -if vital.meals.count <= 2
+    =link_to '食事量記録する', new_vital_meal_path(vital), class: "btn  btn-color"
+  -else
+    %p.card_title
+      食事量
 %p
   - vital.meals.breakfast.each do |meal|
     =render 'meals/meal_quantity',meal: meal
